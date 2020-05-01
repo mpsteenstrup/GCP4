@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new_002</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//new_002
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+}
+
+function draw() {
+}
+//Billede kilde
+
+let img;
+let list = [];
+let scene = 0;
+
+function preload() {
+	for (i=1;i<18;i++){
+		img = createImg('http://mpsteenstrup.dk/FN_maal/FN'+ i +'.jpg','');
+		img.hide();
+	  list.push(img);
+	}
+}
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+}
+
+
+//mouseX and mouseY	
+
+function draw() {
+// how far the ball moves every time
+var speed = 3;
+	background(91,146,229);
+	fill(50,150);
+	ellipse(mouseX,1300,500,50);
+	fill(50,150)
+	ellipse(mouseX,1300,250,100)
+	{
+	//Verdensmål 13 billeder
+	image(list[12],100,500,100,100)
+	image(list[12],100,380,100,100)
+	image(list[12],100,260,100,100)
+	image(list[12],100,140,100,100)
+	image(list[12],220,140,100,100)
+	image(list[12],220,260,100,100)
+	image(list[12],220,380,100,100)
+	image(list[12],220,380,100,100)
+	image(list[12],220,500,100,100)
+	image(list[12],340,500,100,100)
+	image(list[12],340,380,100,100)
+	image(list[12],340,260,100,100)
+	image(list[12],340,140,100,100)
+	image(list[12],460,500,100,100)
+	image(list[12],460,380,100,100)
+	image(list[12],460,260,100,100)
+	image(list[12],460,140,100,100)
+	image(list[12],580,500,100,100)
+	image(list[12],580,380,100,100)
+	image(list[12],580,260,100,100)
+	image(list[12],580,140,100,100)
+	image(list[12],700,500,100,100)
+	image(list[12],700,380,100,100)
+	image(list[12],700,260,100,100)
+	image(list[12],700,140,100,100)
+	image(list[12],820,500,100,100)
+	image(list[12],820,380,100,100)
+	image(list[12],820,260,100,100)
+	image(list[12],820,140,100,100)
+	image(list[12],940,500,100,100)
+	image(list[12],940,380,100,100)
+	image(list[12],940,260,100,100)
+	image(list[12],940,140,100,100)
+	image(list[12],1060,500,100,100)
+	image(list[12],1060,380,100,100)
+	image(list[12],1060,260,100,100)
+	image(list[12],1060,140,100,100)
+	image(list[12],1180,500,100,100)
+	image(list[12],1180,380,100,100)
+	image(list[12],1180,260,100,100)
+	image(list[12],1180,140,100,100)
+	image(list[12],1300,500,100,100)
+	image(list[12],1300,380,100,100)
+	image(list[12],1300,260,100,100)
+	image(list[12],1300,140,100,100)
+	image(list[12],1420,500,100,100)
+	image(list[12],1420,380,100,100)
+	image(list[12],1420,260,100,100)
+	image(list[12],1420,140,100,100)
+	image(list[12],1540,500,100,100)
+	image(list[12],1540,380,100,100)
+	image(list[12],1540,260,100,100)
+	image(list[12],1540,140,100,100)
+	image(list[12],1660,500,100,100)
+	image(list[12],1660,380,100,100)
+	image(list[12],1660,260,100,100)
+	image(list[12],1660,140,100,100)
+	image(list[12],1780,500,100,100)
+	image(list[12],1780,380,100,100)
+	image(list[12],1780,260,100,100)
+	image(list[12],1780,140,100,100)
+	image(list[12],1900,500,100,100)
+	image(list[12],1900,380,100,100)
+	image(list[12],1900,260,100,100)
+	image(list[12],1900,140,100,100)
+	image(list[12],2020,500,100,100)
+	image(list[12],2020,380,100,100)
+	image(list[12],2020,260,100,100)
+	image(list[12],2020,140,100,100)
+	image(list[12],2140,500,100,100)
+	image(list[12],2140,380,100,100)
+	image(list[12],2140,260,100,100)
+	image(list[12],2140,140,100,100)
+	image(list[12],2260,500,100,100)
+	image(list[12],2260,380,100,100)
+	image(list[12],2260,260,100,100)
+	image(list[12],2260,140,100,100)
+}
+}
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

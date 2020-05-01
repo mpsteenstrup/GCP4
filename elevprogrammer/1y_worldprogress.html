@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sn7y2</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//sn7y2
+
+let img
+
+function preload(){
+  img = createImg('https://upload.wikimedia.org/wikipedia/commons/3/31/A_large_blank_world_map_with_oceans_marked_in_blue-edited.png','');
+	img.hide();
+  imgtwo = createImg('http://mpsteenstrup.dk/FN_maal/FN12.jpg','')
+	imgtwo.hide();
+};
+
+function setup(){
+  createCanvas(windowWidth, windowHeight);
+  image(img,0,0,windowWidth,windowHeight);
+}
+
+function draw() {
+    fill(100, 100, 68); // start color
+    if (mouseIsPressed && mouseX < 1120 && mouseX > 1040 && mouseY < 370 && mouseY > 300) { 
+	
+        fill(33, 112, 52); // click color
+    }
+     if (mouseIsPressed && mouseX < 810 && mouseX > 740 && mouseY > 450 && mouseY > 370){
+     	fill(33, 112, 52);
+    }
+    ellipse(1095, 330, 20, 20);  // the button
+    ellipse(770, 418, 20, 20); //button2
+    ellipse(370, 460, 20, 20); //button3
+    fill(255,255,255)
+    rect(370,80,520,30)
+    fill(100,50,100)
+    text("Klik på punkterne for at se hvor langt de forskellige lande er med FN's 17 verdensmål",380, 100)
+    if (mouseIsPressed && mouseX < 1120 && mouseX > 1040 && mouseY < 370 && mouseY > 300){
+    	createCanvas(windowWidth, windowHeight);
+		image(img,0,0,windowWidth,windowHeight);
+    	fill(255,255,255)
+    	rect(890,80,620,200)
+    	fill(0,0,0)
+    	text("Dette er Thailand.", 900,100);
+    	text("Thailand i Sydøstasien har kæmpet hårdt for at prøve at opfylde verdensmålene, hvilket har resulteret i,",900,112);
+    	text("at det nu rangerer som det 40. mest succesfulde land i forhold til at opnå disse mål, i blandt 162 lande.",900,124); 
+    	text("De har især haft held inden for verdensmål nummer 1: udryd fattigdom, som de gennem et højt fokus på området",900,136); 
+    	text("har klaret fuldstændigt. Et andet mål, hvor de har set stor succes, dog ikke helt så meget, er mål nr. 4:",900,148); 
+    	text("lige adgang til kvalitetsuddannelse. Der er stadig et stykke igen, men det er ikke meget. Det eneste de her",900,160); 
+    	text("virkelig mangler er at hæve færdiggørelsesraten blandt højere uddannelser. Thailands største problemer i",900,172); 
+    	text("forhold til de 17 mål ligger lige nu i målene 3, 10, 13 og 14, som er sundhed, lighed, klima og livet under vand.",900,184); 
+    	text("De sidste to har man fra thailands side gjort en masse for at forbedre. Man har bl.a. sørget for oprettelsen af",900,196); 
+    	text("beskyttede områder for landets tigerbestand for at hjælpe den med at vokse. Samtidig har de slået hårdt ned",900,208); 
+    	text("på ulovligt fiskeri og dyremishandlingen i den berygtede elefant turisme. Sammen med Vietnam, Hawaii og andre",900,220); 
+    	text("nationer i regionen er de desuden begyndt at forbyde meget af den engangs plastik, der forurener havet.",900,232); 
+    	text("I stedet for at bruge det skadelige materiale, har man valgt at udskifte det med andre mere klimavenlige",900,244); 
+    	text("alternativer  f.eks. ved at bruge bananblade som emballage.",900,256);
+    }
+    if (mouseIsPressed && mouseX < 810  && mouseX > 740 && mouseY < 450 && mouseY > 370){
+		createCanvas(windowWidth, windowHeight);
+		image(img,0,0,windowWidth,windowHeight);
+		image(imgtwo,650,400,80,80);
+    	fill(252,252,252)
+    	rect(785, 400,650,150);
+    	fill(0,0,0)
+    	text("Dette er Rwanda. Landsbyen Rubaya i Rwanda har arbejdet intenst for at opfylde verdensmål:",790,420);
+		text("-nr. 8: Anstændige jobs og økonomisk vækst",790,432);
+		text("-nr. 11: Bæredygtige byer og lokalsamfund",790,444);
+		text("-nr. 13: Klimaindsats",790,456);
+		text("-og nr. 15: Livet på land",790,468);
+		text("Disse mål har de opfyldt ved at implementere biogassystem, plantning af træer på bjergskråninger",790,480); 
+		text("og regnvandsindsamling. Biogassystemet sørger for at landsbyen generelt er bæredygtig, da biogassen",790,492); 
+		text("bliver brugt til lys og køkken af alle beboerne, hvor biogasresterne bruges til gødning på marker.",790,504); 
+		text("Plantningen af træerne og indførelsen af biogassystemet resulterer i bedre levevilkår for landbrugsjorden.",790,516); 
+		text("Regnvandsindsamlingen gør så landsbyens piger ikke skal gå 5 km efter vand og altså har mere tid til",790,528); 
+		text("skole og lektier. Disse simple løsninger har givet landsbyen et overskud på 26.000 US dollars.",790,540);
+    }
+    if (mouseIsPressed && mouseX < 410 && mouseX > 330 && mouseY < 500 && mouseY > 420){
+		createCanvas(windowWidth, windowHeight);
+		image(img,0,0,windowWidth,windowHeight);
+    	fill(255,255,255)
+    	rect(100,200,550,220)
+    	fill(0,0,0);
+    	text("Dette er Brasilien.", 105, 220)
+        text("Brasilien har deltaget aktivt for opfylde verdensmål", 105, 232);
+        text("-nr. 1: Afskaf fattigdom", 105, 244);
+        text("-nr. 2: Stop sult", 105, 256);
+        text("-nr. 3: Sundhed og trivsel", 105, 268);
+        text("-nr. 4: Kvalitetsuddannelse", 105, 280);
+        text("-nr. 9: Industri, innovation og infrastruktur", 105, 292);
+        text("-nr. 11: Bæredygtige byer og lokalsamfund", 105, 304);
+        text("De har forsøgt at opfylde de mål ved bl.a. at lukke Latinamerikas største losseplads, som,", 105, 328);
+        text("ligger lige uden for hovedstaden af Brasilien, Brasilia. Lossepladsen havde i flere år skadet", 105, 340);
+        text("naturen og grundvandet, så derfor lukkede regeringen den ned og erstattede den med en mere", 105, 352);
+        text("moderne losseplads med affaldssortering og genbrugsstation. Dog var der nogle, der ikke var", 105, 364);
+        text("glade for nedlukningen af lossepladsen; de fattige, der havde bosat sig ved lossepladsen for at", 105, 376);
+        text("finde værdigenstande og mad imellem andres skrald. Den brasilianske regering tilbudte", 105, 388);
+        text("derfor disse mennesker et arbejde på den nye losseplads. 1200 har, ifølge regeringen, sagt ja,",105,400);
+        text("tak til tilbuddet.", 105, 412);
+    }
+    
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
