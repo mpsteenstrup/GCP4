@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>nrkre</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//nrkre
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+
+
+
+
+
+
+};
+var x = 900;
+var y = 350;
+var ballWidth = 30;
+var ballHeight = 20;
+// position of the car
+var xc = 100;
+draw = function() {
+
+	background(151, 244, 247);
+
+
+	//træ nr. 0
+	//stammen
+	var xTree = 850;
+	var yTree = 190
+	noStroke();
+	fill(118, 92, 72)
+	rect(xTree+4, yTree-30, 20,120);
+	//trækronen
+	fill(154,205,50);
+	ellipse(xTree, yTree-20, 50, 30);
+	ellipse(xTree + 20, yTree-40, 50, 30);
+	ellipse(xTree + 10, yTree-40, 50, 30);
+	ellipse(xTree + 30, yTree-20, 50, 30);
+	//træ nr. 1
+	//stammen
+	var xTree1 = 920;
+	noStroke();
+	fill(110, 99, 79)
+	rect(xTree1, yTree, 25, 80);
+	//trækronen
+	fill(107,142,35);
+	ellipse(xTree1, yTree, 50, 30);
+	ellipse(xTree1 + 20, yTree-20, 50, 30);
+	ellipse(xTree1 + 10, yTree-20, 50, 30);
+	ellipse(xTree1 + 30, yTree, 50, 30);
+	//træ nr. 2
+	//stammen
+	var xTree2 = 420;
+	noStroke();
+	fill(110, 99, 79)
+	rect(xTree2, yTree+10, 15, 70);
+	//trækronen
+	fill(107,142,35)
+	ellipse(xTree2, yTree+10, 50, 30);
+	ellipse(xTree2 + 20, yTree-10, 50, 30);
+	ellipse(xTree2 + 10, yTree-10, 50, 30);
+	ellipse(xTree2 + 30, yTree+10, 50, 30);
+	//træ nr. 3
+	//stammen
+	var xTree3 = 370;
+	noStroke();
+	fill(118, 92, 72)
+	rect(xTree3, yTree, 20, 80);
+	//trækronen
+	fill(34, 139, 34);
+	ellipse(xTree3, yTree, 50, 30);
+	ellipse(xTree3 + 20, yTree-20, 50, 30);
+	ellipse(xTree3 + 10, yTree-20, 50, 30);
+	ellipse(xTree3 + 30, yTree, 50, 30);//træ nr. 3
+	//træ nr. 4
+	//stammen
+	var xTree4 = 570;
+	noStroke();
+	fill(118, 92, 72)
+	rect(xTree4, yTree, 20, 80);
+	//trækronen
+	fill(50,205,50);
+	ellipse(xTree4, yTree, 50, 30);
+	ellipse(xTree4 + 20, yTree-20, 50, 30);
+	ellipse(xTree4 + 10, yTree-20, 50, 30);
+	ellipse(xTree4 + 30, yTree, 50, 30);
+
+//brønd
+fill(100, 67, 33);
+rect(1200, 200, 70, 68);
+
+
+
+//mursten 1
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 264, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1225, 264, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1250, 264, 20, 5);
+
+//mursten 2
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1210, 254, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1235, 254, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1260, 254, 10, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 254, 5, 5);
+
+// mursten 3
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 244, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1225, 244, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1250, 244, 20, 5);
+
+//mursten 4
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1210, 234, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1235, 234, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1260, 234, 10, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 234, 5, 5);
+
+// mursten 5
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 224, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1225, 224, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1250, 224, 20, 5);
+
+//mursten 6
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1210, 214, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1235, 214, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1260, 214, 10, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 214, 5, 5);
+
+//mursten 7
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1200, 204, 20, 5);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(100, 67, 33);
+rect(1250, 204, 20, 5);
+
+strokeWeight(3);
+stroke(100,67,33);
+fill(100, 67, 33);
+rect(1250, 204, 20, 5);
+
+fill(151, 244, 247);
+ellipse(1235, 200, 70, 20);
+strokeWeight(5);
+stroke(100, 67, 33);
+line(1201, 159, 1200, 268);
+strokeWeight(4);
+stroke(100, 67, 33);
+line(1270, 159, 1270, 268);
+strokeWeight(4);
+stroke(100, 67, 33);
+line(1201, 159, 1270,159);
+
+strokeWeight(4);
+stroke(100, 67, 33);
+line(1234.5,169,1234.5,159);
+
+strokeWeight(2)
+stroke(0,0,0);
+fill(151, 244, 247);
+ellipse(1235, 180, 27,19);
+
+
+
+//spande
+noStroke()
+fill(190,190,190);
+triangle(1225.5, 207, 1245, 207, 1252, 179.5);
+
+triangle(1226, 207, 1218, 180, 1252, 180);
+
+
+
+
+	noStroke();
+
+	// draw the car body
+	fill(153,128,0);
+	rect(xc, 200+38, 100, 20);
+	rect(xc + 15, 178+38, 70, 40);
+
+	// draw the wheels
+	fill(77, 66, 67);
+	ellipse(xc + 25, 221+38, 24, 24);
+	ellipse(xc + 75, 221+38, 24, 24);
+	//draw windows on car
+	fill(153,170,255);
+	rect(xc + 29, 185+38, 15, 15);
+	rect(xc + 60, 185+38, 15, 15);
+	//udstødnig
+	fill(132,132,130)
+	rect(xc -15, 185+64, 15, 9);
+	fill(0,0,0)
+          textSize(15);
+           text("Lavet af:",xc+15,200+10);
+           text("Johanna",xc-75, 185+64);
+           text("Maria",xc-75-2, 185+54-2);
+            text("Noah",xc-85-2, 185+44-4);
+             text("Sally",xc-95-2, 185+34-6);
+	xc = xc + 1;
+
+	//skyer
+
+	var xSky = 200
+	var ySky = 50
+	stroke(550, 550, 550);
+	fill(550, 550, 550);
+	ellipse(200, 100, xSky, ySky);
+	ellipse(220, 120, xSky, ySky);
+	ellipse(260, 120, xSky, ySky);
+	ellipse(260, 90, xSky, ySky);
+
+	ellipse(700, 120, xSky, ySky);
+	ellipse(720, 140, xSky, ySky);
+	ellipse(760, 100, xSky, ySky);
+	ellipse(750, 110, xSky, ySky);
+
+
+	//sol
+	noStroke();
+	fill(255, 255, 0)
+	ellipse(10, 0, 200, 200)
+	//sol øjne
+	stroke(0, 0, 0);
+	fill(0, 0, 0)
+	ellipse(15, 40, 12, 12)
+	ellipse(59, 20, 12, 12)
+	//sol mund
+	stroke(0, 0, 0);
+	fill(0, 0, 00)
+	ellipse(55, 58, 40, 25)
+	noStroke()
+	fill(255, 255, 0)
+	ellipse(53,54,50,32)
+	ellipse(56,54,50,32)
+
+
+	//draw græs
+	noStroke()
+	fill(380, 210, 36);
+	rect(0, 270, 1500, 900);
+
+	// ISAAC
+	var xBen = 800;
+	noStroke()
+	fill(205, 133, 63);
+	rect(xBen, 450, 10, 50);
+	rect(xBen + 20, 450, 10, 50);
+
+	//menske"føder"
+	noStroke()
+	fill(550, 550, 550);
+	ellipse(xBen + 1, 500, 20, 8);
+
+	fill(550, 550, 550);
+	ellipse(xBen + 23, 500, 20, 8);
+//arm 1.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(787,370,749,341);
+
+//arm 2.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(827,370,879,341)
+
+//flaske
+noStroke()
+fill(550,550,550);
+ellipse(751,320,16,29);
+
+noStroke()
+fill(550,550,550);
+rect(743, 315, 16, 40);
+
+noStroke()
+fill(200,200,200);
+ellipse(751, 307, 10,6)
+
+//hånd 1.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(747,341,744,341)
+
+//hånd 2.
+strokeWeight(4);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(882,344,890,343)
+
+
+strokeWeight(4);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(882,340,890,337)
+
+
+strokeWeight(4);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(882,336,887,330)
+
+
+
+	//menske"krop"
+	noStroke()
+	//bukser
+	fill(21, 27, 141);
+	ellipse(xBen+15, 395, 60, 140);
+
+	//overkrop
+	fill(205, 133, 63);
+	ellipse(xBen+15, 375, 60, 110);
+
+
+	//menske"hoved"
+	var xHår=800
+	var yHår = 240
+	noStroke()
+	fill(205, 133, 63);
+	ellipse(xBen+10, 280, 80, 80);
+	//øjne
+	fill(500)
+	ellipse(xHår-5,yHår+25,15,15)
+	ellipse(xHår+20,yHår+25,15,15)
+	fill(0)
+	ellipse(xHår+20,yHår+25,5,5)
+	ellipse(xHår-5,yHår+25,5,5)
+	//smil
+	fill(500,500,500,)
+	ellipse(xHår+6,yHår+50,35,25)
+	fill(205, 133, 63)
+	ellipse(xHår+6,yHår+42,35,25)
+	//hår
+	stroke(100, 67, 33);
+	strokeWeight(4)
+	noFill()
+	ellipse (xHår, yHår, 8, 8);
+	ellipse (xHår-10, yHår+5, 8, 8);
+ellipse (xHår-9, yHår+2, 8, 8);
+ellipse (xHår+19, yHår+2, 8, 8);
+ellipse (xHår+9, yHår+2, 8, 8);
+ellipse (xHår+9, yHår-2, 8, 8);
+ellipse (xHår-19, yHår+10, 8, 8);
+ellipse (xHår+25, yHår+2, 8, 8);
+ellipse (xHår+35, yHår+10, 8, 8);
+ellipse (xHår+29, yHår+5, 8, 8);
+ellipse (xHår-18, yHår+6, 8, 8);
+
+
+
+
+
+//bjerg
+fill(211,211,211);
+strokeWeight (1)
+stroke(128, 128, 128)
+triangle(70, 270, 190, 270, 135, 160)
+triangle(20, 270, 150, 270, 75, 160)
+triangle(50, 270, 150, 270, 105, 160)
+triangle(140, 270, 180, 270, 170, 210)
+
+//vand
+stroke(21, 27, 141)
+strokeWeight (4)
+fill(21, 27, 141)
+line(140, 270, 147, 255)
+line(147, 255, 105, 163)
+var xvand = 120
+var yvand = 272
+
+stroke(21, 27, 141)
+strokeWeight (50)
+fill(21, 27, 141)
+line(xvand+10, 290, xvand, 1000)
+strokeWeight (35)
+line(xvand+8, 420, xvand-70, 470)
+strokeWeight (35)
+line(xvand-70, 470, xvand-570, 1470)
+strokeWeight (25)
+line(xvand+12, 570, xvand+70, 670)
+line(xvand+70, 670, xvand+190, 770)
+strokeWeight (15)
+line(xvand+70, 670, xvand+55, 770)
+noStroke()
+fill(21, 27, 141)
+rect(xvand-14,yvand-5.9,48,17)
+
+
+
+ fill(380, 210, 36);
+    ellipse(x, y, ballWidth, ballHeight);
+    ellipse(x + 80, y + 3, ballWidth, ballHeight);
+    ellipse(x + 40, y + 2, ballWidth, ballHeight);
+
+    x = x + 0.25;
+    y = y - 2;
+    ballWidth = ballWidth * 98/100;
+    ballHeight = ballHeight *  98/100;
+//interaktiv tekst 2
+
+   fill(0, 255, 68); // start color
+
+    if (mouseIsPressed&&mouseX>743&&mouseX<743+16&&mouseY>315&&mouseY<315+40) {
+
+    	fill(0,0,0)
+    	textSize(20);
+        text("Isaac er én af de 780 millioner mennesker",xBen+100, 285);
+        text("i verden, der ikke har adgang til sikkert",xBen+100, 305);
+        text("forvaltede drikkevandstjenester",xBen+100, 325);
+        text("prøv at trykke på spanden ved floden ",xBen+100, 345);
+        // info om Isaac
+        //interaktiv tekst 2
+    }
+    if (mouseIsPressed&&mouseX>xBen-15&&mouseX<xBen+43&&mouseY>320&&mouseY<420) {
+
+    	fill(0,0,0)
+    	textSize(20);
+        text("Mit navn er Isaac ",xBen+100, 285);
+        text("Jeg er 10 år gammel ",xBen+100, 305);
+        text("og bor i Sydsudan. ",xBen+100, 325);
+
+        text("Prøv at trykke på min vandflaske ",xBen+100, 345);
+        // info om Isaac
+    }
+
+
+
+    // The button text
+    fill(0, 0, 0);
+    textSize(15);
+    text("TRYK HER!", xBen-19, 374);
+
+
+
+	//interaktiv tekst 3
+
+   fill(0, 255, 68); // start color
+
+    if (mouseIsPressed&&mouseX>175&&mouseX<205&&mouseY>350&&mouseY<390) {
+    //Isaac's søster
+
+	// Isaac's søster 1
+	var xBen = 250;
+	noStroke()
+	fill(205, 133, 63);
+	rect(xBen, 450, 10, 50);
+	rect(xBen + 20, 450, 10, 50);
+
+	//hund"poter"
+	noStroke()
+	fill(550, 550, 550);
+	ellipse(xBen + 1, 500, 20, 8);
+
+	fill(550, 550, 550);
+	ellipse(xBen + 23, 500, 20, 8);
+//arm 1.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(187+50,370,149+50,341);
+
+//arm 2.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(227+50,370,279+50,341)
+
+
+	//menske"hoved"
+	var xHår=250
+	var yHår = 240
+		//menske"krop"
+	noStroke()
+		//overkrop
+
+	//bukser
+	fill(128,0,128);
+	ellipse(xBen+10, 395, 60, 140);
+	triangle(210, 465, 310, 465,265,300)
+
+	//hår
+	var xHår2=250
+	var yHår2 = 280
+	stroke(43, 29, 33);
+	strokeWeight(15)
+	noFill()
+	ellipse (xHår, yHår2, 20, 80);
+	ellipse (xHår-10, yHår2+5, 20, 80);
+	ellipse (xHår-20, yHår2+15, 20, 80);
+	ellipse (xHår-15, yHår2+15, 20, 80);
+	ellipse (xHår+25, yHår2+5, 20, 80);
+	ellipse (xHår+35, yHår2+15, 20, 80);
+	ellipse (xHår+35, yHår2+15, 20, 80);
+	ellipse (xHår+8, yHår2-1, 20, 80);
+	ellipse (xHår+15, yHår2-1, 20, 80);
+	noStroke()
+	fill(205, 133, 63);
+	ellipse(xBen+10, 280, 80, 80);
+
+
+	//øjne
+	fill(500)
+	ellipse(xHår-5,yHår+25,15,15)
+	ellipse(xHår+20,yHår+25,15,15)
+	fill(0)
+	ellipse(xHår+20,yHår+25,5,5)
+	ellipse(xHår-5,yHår+25,5,5)
+	//smil
+	fill(500,500,500,)
+	ellipse(xHår+6,yHår+50,35,25)
+	fill(205, 133, 63)
+	ellipse(xHår+6,yHår+42,35,25)
+
+
+    	fill(0,0,0)
+    	textSize(20);
+        text("Jeg er Isaacs lillesøster Maya ",xHår+85,yHår+60);
+        text("Jeg er tørstig ",xHår+85,yHår+80);
+        text("Men vores flod er så forurenet, ",xHår+85,yHår+100);
+        text("Tryk på spanden i brønden",xHår+85,yHår+140)
+
+        text("at vi ikke kan drikke vandet",xHår+85, yHår+120);
+
+        // info om floden
+    }
+
+
+//spand
+noStroke()
+fill(190,190,190);
+var xS2 = 180
+var yS2 = 380
+strokeWeight(2)
+stroke(0,0,0);
+noFill();
+ellipse(xS2+10, yS2-30, 28,19);
+noStroke()
+fill(190,190,190);
+triangle(xS2 + 0.5, yS2, xS2 + 20, yS2, xS2 +27, yS2 -27.5);
+
+triangle(xS2+ 1, yS2, xS2 - 7, yS2- 27, xS2 + 27, yS2 - 27);
+	//interaktiv tekst 4
+
+   fill(0, 255, 68); // start color
+
+    if (mouseIsPressed&&mouseX>1223&&mouseX<1248&&mouseY>180&&mouseY<220) {
+    //Isaac's søster 2
+
+	// Isaac's søster 2
+	var xBen = 1100;
+	noStroke()
+	fill(205, 133, 63);
+	rect(xBen, 450, 10, 50);
+	rect(xBen + 20, 450, 10, 50);
+
+	//hund"poter"
+	noStroke()
+	fill(550, 550, 550);
+	ellipse(xBen + 1, 500, 20, 8);
+
+	fill(550, 550, 550);
+	ellipse(xBen + 23, 500, 20, 8);
+//arm 1.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(xBen-13,370,xBen-49,341);
+
+//arm 2.
+strokeWeight(10);
+stroke(205, 133, 63);
+fill(205, 133, 63);
+line(xBen+27,370,xBen+79,341)
+
+
+
+	//menske"hoved"
+	var xHår=1100
+
+		//menske"krop"
+
+	//bukser
+	noStroke()
+	fill(128,0,128);
+	ellipse(xBen+10, 395, 60, 140);
+
+	 triangle(1060, 465, 1160, 465,1115,300)
+
+	//hår
+	var xHår2=250
+	var yHår2 = 280
+	stroke(43, 29, 33);
+	strokeWeight(15)
+	noFill()
+	ellipse (xHår, yHår2, 20, 80);
+	ellipse (xHår-10, yHår2+5, 20, 80);
+	ellipse (xHår-20, yHår2+15, 20, 80);
+	ellipse (xHår-15, yHår2+15, 20, 80);
+	ellipse (xHår+25, yHår2+5, 20, 80);
+	ellipse (xHår+35, yHår2+15, 20, 80);
+	ellipse (xHår+35, yHår2+15, 20, 80);
+	ellipse (xHår+8, yHår2-1, 20, 80);
+	ellipse (xHår+15, yHår2-1, 20, 80);
+	noStroke()
+	fill(205, 133, 63);
+	ellipse(xBen+10, 280, 80, 80);
+
+    	fill(0,0,0)
+    	textSize(20);
+        text("Hver dag skal jeg gå 5km. ",xHår+70,yHår+160);
+        text("Der ligger den nærmeste ",xHår+70,yHår+180);
+        text("brønd hvor jeg så kan hente",xHår+70,yHår+200);
+        text("vand til resten af familien. ",xHår+70, yHår+220);
+        text("Desværre er ikke engang",xHår+70, yHår+250);
+        text("Tryk nu på *?*",xHår+70, yHår+270);
+        //øjne
+	fill(500)
+	ellipse(xHår-5,yHår+25,15,15)
+	ellipse(xHår+20,yHår+25,15,15)
+	fill(0)
+	ellipse(xHår+20,yHår+25,5,5)
+	ellipse(xHår-5,yHår+25,5,5)
+	//smil
+	fill(500,500,500,)
+	ellipse(xHår+6,yHår+50,35,25)
+	fill(205, 133, 63)
+	ellipse(xHår+6,yHår+42,35,25)
+        // info om brønden
+    }
+    var xHår3=750
+	var yHår3 = 240
+fill(0)
+          	textSize(25);
+              text("FN'S VERDENSMÅL:  ",xHår3+210,yHår3+390+199);
+               text("MÅL 6: RENT VAND OG SANITET",xHår3+210,yHår3+420+199);
+               fill(500,500,500)
+               textSize(95);
+                text("?",xHår3+490,yHår3+420+170);
+
+ if (mouseIsPressed&&mouseX>xHår3+490&&mouseX<xHår3+490+60&&mouseY>yHår3+420+100&&mouseY<yHår3+420+100+70) {
+    //???
+    textSize(25);
+     fill(0)
+	 text("Manglen på rent vand er især et  ",xHår3+210,yHår3+120+199);
+       text("problem ude på landet i de  ",xHår3+210,yHår3+140+199);
+       text("afrikanske lande, der ligger syd for ",xHår3+210,yHår3+160+199);
+       text("Saharaørkenen. Her er der ikke boret  ",xHår3+210,yHår3+180+199);
+       text( "særlig mange brønde,og vandet fra  ",xHår3+210,yHår3+200+199);
+       text( "floder og damme kan være fyldt med ",xHår3+210,yHår3+220+199);
+        text( "bakterier og smådyr.  ",xHår3+210,yHår3+240+199);
+ }
+
+
+
+
+};
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

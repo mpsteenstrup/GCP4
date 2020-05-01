@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4vjm9</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//4vjm9
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+
+}
+
+var x=150;
+
+function draw() {
+
+
+background(184, 236, 255);
+
+//Bi
+	var Krop_Y = mouseY;
+	var Krop_X = 250;
+	fill(540,524,12);
+	ellipse(Krop_X, Krop_Y, 110, 80); //bikrop
+
+	fill(540,524,12)
+	ellipse(Krop_X+50,Krop_Y,70,70);//bihoved
+
+	fill(0,0,0);
+	rect(Krop_X-20,Krop_Y-38,10,75,10);
+	rect(Krop_X,Krop_Y-38,10,75,10);
+	rect(Krop_X-40,Krop_Y-30,10,60,10);
+	rect(Krop_X+20,Krop_Y-30,10,60,10);
+
+
+
+	fill(300,300,300);
+	ellipse(Krop_X+60,Krop_Y,20,20);//øje
+	ellipse(Krop_X+80,Krop_Y,20,20);//øje
+
+	fill(0,0,0)
+	ellipse(Krop_X+62,Krop_Y,5,5);//SortIØjet
+	ellipse(Krop_X+82,Krop_Y,5,5);//SortIØjet
+
+//Skyer
+	noStroke()
+// clouds
+	fill(255, 255, 255);
+// left cloud
+	ellipse(x, 150, 126, 97);
+	ellipse(x+62, 150, 70, 60);
+	ellipse(x-62, 150, 70, 60);
+    x=x-2;
+
+
+// right cloud
+	ellipse(x+250, 100, 126, 97);
+	ellipse(x+312, 100, 70, 60);
+	ellipse(x+188, 100, 70, 60);
+
+//Sky 3
+	ellipse(x+650, 110, 126, 97);
+	ellipse(x+712, 110, 70, 60);
+	ellipse(x+588, 110, 70, 60);
+
+//Græs
+	fill(20,300,20);
+	rect(0,750,1900,200);
+
+//stilk
+	rect(395,655,10,100);
+
+
+//blomst
+	fill(159,40,150);
+	ellipse(400, 650, 100, 70);
+	ellipse(370, 675, 100, 70);
+	ellipse(430, 675, 100, 70);
+
+
+//blomst2
+	fill(159,40,150);
+	ellipse(10, 10, 100, 70);
+	ellipse(10, 10, 100, 70);
+	ellipse(10, 10, 100, 0);
+
+
+//kødædendePlante
+	fill(300,80,20);
+	ellipse(200,680,100,100);
+	triangle(200,680,245,685,270,620);
+	triangle(150,650,180,685,100,620);
+
+noStroke()
+//rovfugl
+	fill(32,123,123);
+	ellipse(850,320,130,100);
+	ellipse(800,320,100,100);
+
+	fill(1000,1010,1110);
+	ellipse(800,300,15,20);
+	ellipse(780,300,15,20);
+
+	fill(290,123,43);
+	triangle(760,325,730,315,760,300);
+	triangle(760,345,730,325,760,320);
+
+
+
+
+}
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

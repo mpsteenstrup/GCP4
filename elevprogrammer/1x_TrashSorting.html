@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new_001</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//new_001
+
+function setup() {
+  createCanvas(600, 600);
+  drawScene1();
+}
+
+// Koordinater der bestemmer starthøjde
+var q = -300;
+var w = -600;
+var e = -900;
+var r = -1200;
+var t = -1800;
+var u = -2000;
+
+// Hastighed af objekter
+var qs = 2;
+var ws = 2;
+var es = 2;
+var rs = 2;
+var ts = 2;
+var us = 2;
+
+var leftX = 128;
+var rightX = 249;
+
+// Tjek om spil er slut variabel
+var spilSlut = 0;
+
+// Koordinater for hvor højt frugtet går
+var v = -1400
+
+// Point
+var score = 0
+
+// Koordinater der ændres i forhold til spillerne
+var cord1y = 310
+var cord1x = -150
+var cord2y = 310
+var cord2x = 150
+
+
+function draw() {
+  if (currentScene === 3) {
+    drawScene3()
+  }
+}
+
+//Buttons
+function drawButton1() {
+  fill(100, 100, 100);
+  rect(150, 300, 100, 25);
+  fill(0, 0, 0);
+  textSize(16);
+  text("BEGYND", 165, 318);
+}
+
+function drawButton2() {
+  fill(100, 100, 100);
+  rect(350, 300, 100, 25);
+  fill(0, 0, 0);
+  textSize(16);
+  text("VEJLEDNING", 350, 318);
+}
+
+function drawButton3() {
+  fill(100, 100, 100);
+  rect(500, 50, 80, 25);
+  fill(0, 0, 0);
+  textSize(16);
+  text("TILBAGE", 505, 68);
+}
+
+function drawButton4() {
+  fill(100, 100, 100);
+  rect(460, 50, 125, 25);
+  fill(0, 0, 0);
+  textSize(16);
+  text("START FORFRA", 462, 68);
+}
+
+function drawButton5() {
+  fill(100, 100, 100);
+  rect(20, 50, 80, 25);
+  fill(0, 0, 0);
+  textSize(16);
+  text("TILBAGE", 27, 68);
+}
+
+
+//Scenes
+var currentScene;
+ 
+//Start scene
+function drawScene1() {
+  currentScene = 1;
+  background(50, 150, 300);
+  fill(7, 14, 145);
+  textSize(30);
+  text("LAD OS LÆRE AT SAMLE SKRALD", 55, height / 3);
+  drawButton1();
+  drawButton2();
+   draw = function() {
+   // clouds 
+    noStroke()
+    fill(255, 255, 255);
+    // left cloud
+    ellipse(leftX, 125, 126, 97);
+    ellipse(leftX+62, 125, 70, 60);
+    ellipse(leftX-62, 125, 70, 60);
+    
+    // right cloud
+    ellipse(rightX, 80, 126, 97);
+    ellipse(rightX+62, 80, 70, 60);
+    ellipse(rightX-62, 80, 70, 60);
+    
+    //sol
+     fill(255,170,0);
+    ellipse(550,50,200,150);
+  }
+
+//Tutorial scene
+function drawScene2() {
+  currentScene = 2;
+  background(100, 239, 255);
+  fill(7, 14, 145);
+  textSize(30);
+  text("HVORDAN DU SPILLER", 170, height / 3);
+  fill(0, 0, 0);
+  textSize(17);
+  text("Ryk skraldet på skærmen hen til den ønskede skraldespand.", 50, 300);
+  fill(0, 0, 0);
+  textSize(17);
+  text("Dette gøres ved hjælp af musen", 50, 325)
+  fill(17, 204, 4);
+  textSize(17);
+  text("MÅLET ER AT SORTERE SKRALDET I DEN RIGTIGE SKRALDESPAND", 40, 370);
+  drawButton3();
+}
+
+//Spil scene
+function drawScene3() {
+  currentScene = 3
+  background(100, 239, 255);
+  // Kalder på diverse funktioner
+  dåse()
+
+  svamp()
+
+  vandflaske()
+
+  burger()
+
+  glas()
+
+  aeble()
+
+  // Styrer spiller med normal skraldespand
+  player1();
+  if (keyIsDown(37)) {
+    cord1x -= 5;
+  }
+  if (keyIsDown(39)) {
+    cord1x += 5;
+  }
+
+  // Styrer spiller med bioskraldespand
+  player2();
+  if (keyIsDown(65)) {
+    cord2x -= 5;
+  }
+  if (keyIsDown(68)) {
+    cord2x += 5;
+  }
+  drawButton4();
+  drawButton5();
+  
+  if (spilSlut === 0) {
+    drawScene = 4
+  }
+  textSize(80);
+  text(score, 250, height / 4.5);
+}
+
+//Spil slut scene
+function drawScene4() {
+  currentScene = 4;
+  background(255, 255, 255);
+  fill(255, 0, 0);
+  textSize(39);
+  text("Du har nu sorteret alt skraldet", 30, 300);
+  fill(200, 200, 0);
+  textSize(25);
+  text("Vandflasken, glasset og dåsen skal i normalt affald.", 40, 400)
+  text("Æblet, svampen, og burgeren skal i bioaffald.", 40, 450)
+}
+
+//Buttons link
+function mousePressed() {
+  if (currentScene === 1) {
+    if (mouseX >= 150 && mouseX <= 250 &&
+      mouseY >= 300 && mouseY <= 320) {
+      drawScene3();
+    } else if (mouseX >= 350 && mouseX <= 450 && mouseY >= 300 && mouseY <= 320) {
+      drawScene2();
+    }
+  }
+
+  if (currentScene === 2) {
+    if (mouseX >= 500 && mouseX <= 560 && mouseY >= 50 && mouseY <= 75) {
+      drawScene1();
+    }
+  }
+
+  if (currentScene === 3) {
+    if (mouseX >= 500 && mouseX <= 565 && mouseY >= 50 && mouseY <= 75) {
+      drawScene3();
+      score=0;
+      
+      //Reset højde
+      q = -300;
+      w = -600;
+      e = -900;
+      r = -1200;
+      t = -1800;
+      u = -2000;
+      
+      //Reset hastighed
+      qs = 1;
+      ws = 1;
+      es = 1;
+      rs = 1;
+      ts = 1;
+      us = 1;
+    } else if (mouseX >= 20 && mouseX <= 70 && mouseY >= 50 && mouseY <= 75) {
+      drawScene1();
+      score = 0;
+      
+      //Reset højde
+      q = -300;
+      w = -600;
+      e = -900;
+      r = -1200;
+      t = -1800;
+      u = -2000;
+      
+      //Reset hastighed
+      qs = 1;
+      ws = 1;
+      es = 1;
+      rs = 1;
+      ts = 1;
+      us = 1;
+    }
+  }
+}
+
+// Genstand dåse
+
+function dåse() {
+
+  noStroke()
+
+  background(220);
+  
+  var p = mouseX
+
+  fill(225, 130, 30)
+  rect(100 + p, q + 200, 40, 55)
+
+  fill(194, 194, 194)
+  ellipse(120 + p, q + 260, 40, 15)
+
+  fill(194, 194, 194)
+  ellipse(120 + p, q + 200, 40, 15)
+
+  fill(225, 160, 30)
+  ellipse(120 + p, q + 255, 40, 15)
+
+  fill(135, 135, 135)
+  ellipse(110 + p, q + 200, 15, 7)
+
+  fill(255, 255, 255)
+  textSize(12)
+  text('Fanta', 105 + p, q + 230);
+
+  q += qs
+
+  if (q > 800) {
+    q = v
+    if (qs < 4)
+    {
+      qs += 1
+    }
+  }
+
+  if (p <= -25 + cord1x && p >= -90 + cord1x && q > 245 && q < 255) {
+    q = v
+    score++
+    if (qs < 4)
+    {
+      qs += 1
+    }
+  }
+}
+
+// Genstand Svamp
+
+function svamp() {
+  // Svamp
+
+  noStroke()
+
+  m = mouseX
+
+  fill(204, 30, 60)
+  ellipse(200 + m, w + 200, 73, 35)
+
+  fill(105, 81, 51)
+  ellipse(200 + m, w + 207, 70, 20)
+
+  fill(224, 210, 192)
+  rect(191 + m, w + 197, 20, 50)
+
+  fill(61, 53, 44)
+  ellipse(201 + m, w + 250, 20, 10)
+
+  w += ws
+
+  if (w > 800) {
+    w = v
+    if (ws < 4)
+    {
+      ws += 1
+    }
+  }
+  
+  if (cord2x >= 60 && cord2x <= 175 && w > 240 && w < 260) {
+    w = v
+    score++
+    if (ws < 4)
+    {
+      ws += 1
+    }
+  }
+}
+
+// Genstand Vandflaske
+
+function vandflaske() {
+  //e= 41
+  noStroke()
+  //Vandflaske 
+
+  fill(226, 245, 245)
+  rect(70, e - 1, 50, 120);
+
+  fill(215, 232, 245)
+  ellipse(95, e - 1, 50, 15);
+
+  fill(215, 232, 245)
+  ellipse(95, e, 50, 15);
+
+  fill(26, 46, 107)
+  rect(85, e - 34, 20, 12)
+
+  e += es
+
+  if (e > 800) {
+    e = v
+    if (es < 4)
+    {
+      es += 1
+    }
+  }
+  
+  if (cord1x <= -200 && cord1x >= -285 && e > 360 && e < 380) {
+    e = v
+    score++
+    if (es < 4)
+    {
+      es += 1
+    }
+  }
+}
+
+// Genstand Burger
+
+function burger() {
+  noStroke()
+  //burger
+  
+  var uy = mouseX
+
+  //burgerbolle nederst
+  fill(240, 221, 166)
+  ellipse(200 + uy, r, 70, 20)
+
+  //salat
+  fill(98, 181, 85)
+  ellipse(200 + uy, r - 15, 60, 20)
+
+  //tomater
+  fill(204, 93, 33)
+  ellipse(185 + uy, r - 20, 30, 20)
+
+  fill(204, 93, 33)
+  ellipse(215 + uy, r - 20, 30, 20)
+
+  //bøf
+  fill(112, 96, 55)
+  ellipse(200 + uy, r - 28, 60, 15)
+
+  //ost
+  fill(250, 212, 20)
+  rect(165 + uy, r - 38, 70, 5)
+
+
+  //burgerbolle øverst 
+  fill(240, 221, 166)
+  ellipse(200 + uy, r - 43, 70, 17)
+
+  r += rs
+
+  if (r > 800) {
+    r = v
+    if (rs < 4)
+    {
+      rs += 1
+    }
+  }
+  
+  if (cord2x >= -135 + uy && cord2x <= -55 + uy && r > 470 && r < 500) {
+    r = v
+    score++
+    if (rs < 4)
+    {
+      rs += 1
+    }
+  }
+}
+
+// Genstand glas
+
+function glas() {
+  // t=300
+
+
+  fill(228, 239, 247)
+  rect(195, t + 189, 30, 60)
+
+fill(200, 200, 230)
+  ellipse(210.5, t + 191, 30, 10)
+
+  t += ts
+
+  if (t > 800) {
+    t = v
+    if (ts < 4)
+    {
+      ts += 1
+    }
+  }
+  
+  if (cord1x <= -50 && cord1x >= -115 && t > 175 && t < 195) {
+    t = v
+    score++
+    if (ts < 4)
+    {
+      ts += 1
+    }
+  }
+}
+
+// Genstand Aeble
+
+function aeble() {
+  //red part of appel 
+  fill(200, 0, 0);
+  ellipse(mouseX, u + 242, 40, 10);
+
+  //inside of appel 
+  noStroke()
+  fill(237, 235, 213)
+  rect(mouseX, u + 234, 37, 7);
+
+  fill(237, 235, 213)
+  rect(mouseX, u + 227, 28, 7);
+
+  fill(237, 235, 213)
+  rect(mouseX, u + 215, 15, 12);
+
+  fill(237, 235, 213)
+  rect(mouseX, u + 208, 28, 7);
+
+  fill(237, 235, 213)
+  rect(mouseX, u + 202, 37, 7);
+
+  //red part of appel
+  fill(200, 0, 0);
+  ellipse(mouseX, u + 200, 40, 10);
+
+  //stilk 
+  fill(138, 110, 75)
+  rect(mouseX, u + 185, 2, 12);
+
+  u += us
+
+  if (u > 800) {
+    u = v
+    if (us < 4)
+    {
+      us += 1
+    }
+  }
+  
+  if (cord2x >= -110 && cord2x <= -65 && u > 225 && u < 250) {
+    u = v
+    score++
+    if (us < 4)
+    {
+      us += 1
+    }
+  }
+}
+
+
+// Spiller med normalt Affald
+
+function player1() {
+  noStroke()
+  //Plastskraldespand
+ strokeWeight()
+fill(600, 100, 50);
+rect(50, 450, 125, 120);
+  fill(600,100,50);
+  fill(256, 255, 255)
+  textSize(15)
+  text('Plast', cord1x+30 + 200, cord1y + 200);
+}
+
+
+// Spiller med madaffald
+
+function player2() {
+  noStroke()
+  //Madaffalsskraldespand 
+rect(340, 450, 125, 119); 
+  noStroke()
+  fill(100, 800, 200)
+  textSize(15)
+  text('Madaffald', 218 + cord2x, 200 + cord2y);
+
+  //skraldespand med dåser
+  rect(190, 450, 125, 119);
+  fill(200,100,800);
+  text('Dåser',220,510);
+}
+
+if (currentScene === 3) {
+    if (score >= 20) {
+      drawScene4();
+    }
+  }
+}
+
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

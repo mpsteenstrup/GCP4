@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>osxid</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//osxid
+
+function preload(){
+  img = createImg('https://www.stickpng.com/assets/images/580b585b2edbce24c47b2792.png');
+	img.hide();
+}
+
+// definerer variable [] betyder at der er mange x-værdier osv; én for hver ellipse
+	var farve;
+	var x = [200,800,300,900,600,1000,100,1200, 200, 1000, 500, 1100];
+	var y = [0,-100,-300,-400,-500,-700,-1000,-200, -1200, -1500, -1800, -2000];
+	var vy = 4;
+	var p = 0;
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	farve =[color(163, 117, 10),color(17,57,217),color(17,57,217), color(163, 117, 10),color(17,57,217),color(163, 117, 10),color(17,57,217),color(17,57,217),color(163, 117, 10),color(163, 117, 10),color(163, 117, 10),color(163, 117, 10)];
+	image(img,600,500);
+}
+
+draw = function() {
+
+//baggrund        
+	background(127, 204, 255);
+
+
+// skaber en ny ellipse i hvert gennemløb med en tilfældig x- og en y-koordinat lig 0 og en farve ved kun nogle af gennemgangene
+	
+    
+// tæller alle Ellipser igennem   
+    for (var i=0; i<x.length; i++){
+    
+//tegner ellipser
+	noStroke();
+	fill(farve[i]);
+	ellipse(x[i],y[i],50,50);
+
+// flytter Ellipser
+        y[i] = y[i] + vy;
+
+//ændrer farve for de ellipser der er inden for rektanglet
+	if (x[i]<mouseX+100 && x[i]>mouseX-100 && y[i]>600 && y[i]<620){
+    farve[i] = color(127,204,255);
+	}
+
+	if(y[i]>windowHeight){
+		y[i]=random(-300,0)
+		x[i]=random(0,windowWidth)
+		
+		farve[i] = color(17,57,217);
+	}
+	
+// rektangel med mus i centrum af rektangel
+    fill(200,0,0);
+    rect(mouseX-100, 600, 200, 20);
+    
+//Point-tæller
+		fill(255);
+	textSize(40);
+	text("POINT:", 1200, 50, width, height);
+	fill(255);
+	textSize(40);
+	text(p, 1350, 50, width, height);
+	if (x[i]<mouseX+100 && x[i]>mouseX-100 && y[i]>600 && y[i]<620){
+		p=p+1;
+	
+}
+
+//Guidelines
+	fill(255);
+	textSize(20);
+	text("Collect the clean water!", 1200, 100, width, height);
+
+
+
+
+
+
+    }
+	
+}
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

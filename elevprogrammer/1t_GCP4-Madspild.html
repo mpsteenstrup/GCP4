@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ghtmx</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//ghtmx
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+
+}
+
+var x=350;
+var y=150;
+
+var x1=150;
+var y1=0;
+var x2=350;
+var y2=-75;
+
+var x3= 775;
+var y3= -300;
+
+var x4= 825;
+var y4=-300;
+
+background(125, 227, 172);
+
+
+
+function draw() {
+	//Husholdninger
+
+fill(212, 209, 112);//Farve hus
+rect(x2, y2+600, 100, 100);//Hus Hus
+
+      fill(33, 23, 23);//Farve skorsten
+  rect(x2+10, y2+560, 15, 30);//Skorsten
+  fill(196, 71, 71);//Farve tag
+  strokeWeight(1);
+triangle(x2,y2+600,x2+50,y2+550,x2+100,y2+600);// Tag på hus
+
+ fill(112, 88, 21);//Farve dør
+rect(x2+20, y2+655, 25, 45);//Dør
+
+strokeWeight(3);
+stroke(1000, 10000, 10000);
+    fill(48, 219, 213);//Farve vindue
+rect(x2+60, y2+650,25, 25);//Vindue
+
+line(x2+60, y2+662, x2+85,y2+662 );//Vindue streg henad
+line(x2+72, y2+650, x2+72,y2+675 );
+
+//Husholdninger
+fill(212, 209, 112);//Farve hus
+rect(x1, y1+600, 100, 100);//Hus Hus
+      fill(33, 23, 23);//Farve skorsten
+  rect(x1+10, y1+560, 15, 30);//Skorsten
+  fill(196, 71, 71);//Farve tag
+  strokeWeight(1)
+triangle(x1,y1+600,x1+50,y1+550,x1+100,y1+600);// Tag på hus
+ fill(112, 88, 21);//Farve dør
+rect(x1+20, y1+655, 25, 45);//Dør
+strokeWeight(3);
+stroke(1000, 10000, 10000);
+    fill(48, 219, 213);//Farve vindue
+rect(x1+60, y1+650,25, 25);//Vindue
+line(x1+60, y1+662, x1+85,y1+662 );//Vindue streg henad
+line(x1+72, y1+650, x1+72,y1+675 );
+
+	//Supermarkeder
+fill(209, 200, 1889)
+rect(990, 610, 500, 200);//bygning
+textSize(35);fill(46, 232, 213);
+fill(22, 143, 16);
+text('Supermarked ', 1150, 645);
+fill(48, 219, 213);
+rect(1390, 720, 60, 90);//dør
+textSize(15);
+text('Indgang & udgang', 1350, 715);
+fill(245, 244, 218);
+ellipse(1100,690,120,120);
+textSize(50);
+fill(245, 237, 79);
+text('20 %', 1046,700);
+fill(46, 232, 213);
+
+//Hotel og reastaurant
+fill(153, 153, 153);//farve hotel
+
+rect(690, 110, 100, 310);//Hotel
+
+fill(48, 219, 213);
+
+for (var y = 160; y < 350; y += 40) {
+    rect(690, y, 100, 20);
+}
+
+fill(48, 219, 213);//Farve hoteldør(glas)
+rect(715, 375, 25, 45);//Dør//Venstre
+rect(743, 375, 25, 45);//Dør//Højre
+
+fill(127, 184, 227);
+rect(800, 295, 200, 125);//Reastaurant
+ fill(196, 71, 71);
+triangle(800,295,900,250,1000,295);//Tag på restaurant
+
+fill(125, 82, 82);
+rect(943, 375, 35, 45);//Dør restaurent
+    fill(48, 219, 213);//Farve vindue
+
+rect(x3+60, y3+650,25, 25);//Vindue
+line(x3+60, y3+662, x3+85,y3+662 );//Vindue streg henad
+line(x3+72, y3+650, x3+72,y3+675 );
+
+	rect(x4+60, y4+650,25, 25);//Vindue
+line(x4+60, y4+662, x4+85,y4+662 );//Vindue streg henad
+line(x4+72, y4+650, x4+72,y4+675 );
+
+rect(940,355,40,10);
+
+rect(1150,90,400,350);//Spørgsmålsboks
+textSize(15);
+fill(0,0,0);
+text('I Danmark bliver der smidt over 700.000 ton mad ud',1180,120);
+text('om året. Hvor tror du størstedelen af det madspild ',1180,145);
+text('kommer fra? Tror du det kommer fra hoteller ',1180,170);
+text('og restauranter, detailhandel(supermarkeder) ',1180,195);
+text('eller husholdninger? Klik på den firkant,',1180,220);
+text(' hvor der står det du tror.',1180,245);
+text('Klik på den firkant, hvor der står det du tror.',1180,285);
+
+fill(46, 232, 213);
+
+if(mouseIsPressed&&mouseX<315&&mouseX>140&&mouseY<520&&mouseY>450){fill(33, 112, 52);}
+
+rect(140,450,175,70);//Firkant med husholdninger
+textSize(25);
+fill(0, 0, 0);
+
+if(mouseIsPressed&&mouseX<315&&mouseX>140&&mouseY<520&&mouseY>450){
+text('Korrekt ', 155, 490);}
+else{text('Husholdninger ', 145, 490);}
+
+if(mouseIsPressed&&mouseX<315&&mouseX>140&&mouseY<520&&mouseY>450){
+text('Husholdninger står for 36% af madspildet i Danmark ', 155, 800);}
+
+fill(46, 232, 213);//Farven på boks med navn
+
+if(mouseIsPressed&&mouseX<1010&&mouseX>825&&mouseY<170&&mouseY>100){fill(255, 20, 20);}
+
+
+rect(825,100,185,70)//Boks med hotel
+textSize(20);
+fill(0,0,0);
+
+if(mouseIsPressed&&mouseX<1010&&mouseX>825&&mouseY<170&&mouseY>100){text('Forkert', 835,140);}
+else{text('Hotel og restaurant', 835,140);}
+
+if(mouseIsPressed&&mouseX<1010&&mouseX>825&&mouseY<170&&mouseY>100)
+{text('Hoteller og restauranter står for 4% af madspildet i Danmark', 835,500);}
+
+
+fill(79, 102, 219);
+
+fill(46, 232, 213);//Farven på boks med navn
+
+
+if(mouseIsPressed&&mouseX<1475&&mouseX>1300&&mouseY<570&&mouseY>520){fill(255, 20, 20);}
+
+rect(1300,520,175,70);//Boks til detail
+textSize(25);
+fill(0,0,0);
+
+if(mouseIsPressed&&mouseX<1475&&mouseX>1300&&mouseY<570&&mouseY>520){
+text('Forkert ', 1350, 560);}
+else{text('Detailhandel ', 1325, 560);}
+
+if(mouseIsPressed&&mouseX<1475&&mouseX>1300&&mouseY<570&&mouseY>520){
+text('Detailhandlen står for 23% af madspildet i Danmark', 950, 900);}
+
+
+}
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

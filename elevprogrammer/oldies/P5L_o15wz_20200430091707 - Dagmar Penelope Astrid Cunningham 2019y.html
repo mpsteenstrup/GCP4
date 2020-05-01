@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>o15wz</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//o15wz
+
+function preload(){
+  img = createImg('http://mpsteenstrup.dk/FN_maal/FN6.jpg','');
+	img.hide();
+}
+
+function setup() {
+	createCanvas(windowWidth,windowHeight);
+}
+
+	var x=385;
+	var y=250;
+
+	var x2=385;
+	var y2=250;
+
+	var x3=385;
+	var y3=250;
+
+
+function draw() {
+	
+	//himmel
+	background(100,170,220);
+	
+	noStroke();
+	
+	//vand
+	fill(0,100,220);
+	rect(800,555,900,400);
+	
+	
+	//regndråber
+	fill(0,100,220);
+	circle(x,y,15);
+	triangle(x,y-25,x-7,y,x+7,y);
+	
+	circle(x2-50,y2+70,15);
+	triangle(x2-50,y2+45,x2-57,y2+70,x2-43,y2+70);
+	
+	circle(x3+70,y3+100,15);
+	triangle(x3+70,y3+75,x3+63,y3+100,x3+77,y3+100);
+	
+	y++;
+	
+	y2+=1.5;
+	
+	y3+=2;
+	
+		if(y>550){
+			y=250
+		}
+		
+		if(y2>550){
+			y2=190
+		}
+	
+		if(y3>550){
+			y3=150
+		}
+		
+		//jord
+	fill(150,100,60); 
+	rect(0,537,800,400); 
+	triangle(800,537,800,587,900,587);
+		rect(800,587,100,350);
+	
+	//grundvand
+	fill(0,25,50);
+	ellipse(455,640,450,150);
+	
+	//sky4
+	fill(70,130,160);
+	ellipse(350,200,100,100);
+	ellipse(385,225,100,100);
+	ellipse(385,175,100,100);
+	ellipse(425,200,100,100);
+	
+	//sky3
+	fill(255,255,255);
+	circle(625,220,100);
+	circle(675,220,100);
+	circle(650,190,100);
+	
+	//sky2
+	circle(850,210,100);
+	circle(900,200,100);
+	
+	//sky1
+	circle(1100,200,100);
+	
+	//vandværk
+	fill(40,100,155)
+	rect(200,502,100,35)
+	rect(270,520,3,100)
+	
+	//stort træ
+	fill(200,100,60);
+	rect(600,463,20,75);
+	fill(0,120,50);
+	triangle(610,400,560,520,660,520);
+	
+	//lille træ
+	fill(200,100,60);
+	rect(700,470,20,67);
+	fill(0,120,50);
+	triangle(710,450,675,520,745,520);
+	
+	//sol
+	fill(255,255,51);
+	ellipse(1200,100,100,100);
+	
+	//damp
+	noFill();
+	stroke(50,110,140);
+	curve(damp_x-100,damp_y-40,damp_x,damp_y,damp_x,damp_y+40,damp_x-100,damp_y+80);
+	curve(damp_x+100,damp_y,damp_x,damp_y+40,damp_x,damp_y+80,damp_x+100,damp_y+120);
+	
+	curve(damp_x,damp_y+50,damp_x+100,damp_y+90,damp_x+100,damp_y+130,damp_x,damp_y+170);
+	curve(damp_x+200,damp_y+10,damp_x+100,damp_y+50,damp_x+100,damp_y+90,damp_x+200,damp_y+130);
+	
+	curve(damp_x-250,damp_y+120,damp_x-150,damp_y+160,damp_x-150,damp_y+200,damp_x-250,damp_y+240);
+	curve(damp_x-50,damp_y+80,damp_x-150,damp_y+120,damp_x-150,damp_y+160,damp_x-50,damp_y+200);
+	
+	fill(0,0,0)
+	text("hej",600,185,685,240);
+	
+	strokeWeight(5);
+	line(1000,450,1000,300);
+	
+	smooth()
+	image(img,10,10,150,150);
+}
+
+var damp_x=1100;
+var damp_y=340;
+
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new_001</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//new_001
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	
+}
+var xPos=100;
+var yPos=100;
+    
+background(71,155,250);
+fill(255,255,255)
+
+
+function draw() {
+fill(255,255,255);
+rect(xPos,yPos,20,20);
+xPos+=1;
+yPos-=1;
+
+//rød Fisk 1
+	fill(769,0,0);
+	ellipse(500,400,80,50);
+	triangle(570,430,540,400,570,370);
+	fill(255,255,255)
+	ellipse(520,400,5,41);
+	ellipse(510,400,5,49);
+//Fisk 1 øje
+	fill(255,255,255)
+	ellipse(480,395,20,20);
+	fill(0,0,0)
+	ellipse(480,395,10,10)
+//grøn Fisk 2
+	fill(6,66,13)
+	triangle(500,550,500,650,440,600);
+	fill(53,179,75)
+	ellipse(400,600,100,70);
+	fill(6,66,13);
+	ellipse(400,600,10,5);
+	ellipse(440,607,10,5);
+	ellipse(380,615,10,5);
+	ellipse(420,585,10,5);
+	ellipse(390,580,10,5);
+	ellipse(410,620,10,5);
+	ellipse(365,607,10,5);
+	ellipse(418,605,10,5);
+	
+//Fisk 2 øje
+	fill(255,255,255);
+	ellipse(372,590,20,20);
+	fill(0,0,0);
+	ellipse(372,590,10,10)
+//Skildpadde 
+//Arme
+    fill(31,120,83)
+    ellipse(560,300,40,100);
+    ellipse(560,100,40,100);
+    ellipse(650,100,40,100);
+    ellipse(650,300,40,100);
+//Hoved og krop
+    fill(31,120,83)
+    ellipse(600,200,200,150);
+    ellipse(460,200,80,70);
+    fill(23,82,57)
+    ellipse(600,200,170,145);
+   
+//Øjne
+    fill(255,255,255);
+    ellipse(450,185,15,15);
+    ellipse(450,220,15,15);
+    fill(0,0,0);
+    ellipse(450,220,10,10);
+    ellipse(450,185,10,10);
+    
+//Net
+	line(620,396,20,10,300,300);
+	line(800,50,8,6,250,300);
+	line(798,50,618,400,400,60);
+	line(670,300,30,40,1,1);
+	line(644,350,30,40,1,1);
+	line(694,250,30,40,1,1);
+	line(773,100,30,40,1,1);
+	line(720,200,30,40,1,1);
+//Fisk 3
+    fill(232,210,65);
+    triangle(810,260,810,340,857,302);
+    ellipse(900,300,90,60);
+    fill(28,232,205);
+    ellipse(890,300,5,60);
+//Fisk 3 øjne
+    fill(255,255,255)
+    ellipse(915,290,20,20)
+    fill(0,0,0)
+    ellipse(915,290,10,10)
+//lilla Blæksprutte
+    fill(79,48,148);
+    ellipse(1165,170,27,100);
+    ellipse(1210,180,27,100);
+    ellipse(1230,180,27,100)
+    ellipse(1190,180,27,100);
+    ellipse(1239,175,27,100);
+    ellipse(1200,100,100,105);
+//Øjne
+    fill(255,255,255);
+    ellipse(1220,90,20,20);
+    ellipse(1180,90,20,20);
+    fill(0,0,0);
+    ellipse(1215,90,10,10);
+    ellipse(1175,90,10,10);
+//Mund
+    fill(235, 171, 235);
+    ellipse(1200,120,50,20);
+//orange Blæksprutte
+	fill(230,154,23);
+    ellipse(1020,180,27,100);
+    ellipse(1095,180,27,100);
+    ellipse(1060,175,27,100);
+    ellipse(1075,180,27,100)
+    ellipse(1035,180,27,100)
+    ellipse(1060,100,100,110);
+ //Øjne
+    fill(255,255,255);
+    ellipse(1080,90,20,20);
+    ellipse(1040,90,20,20);
+    fill(0,0,0)
+    ellipse(1075,90,10,10);
+    ellipse(1035,90,10,10);
+//Mund
+    fill(242,153,211);
+    ellipse(1060,120,35,20)
+//HAJ Finner
+	fill(20,68,163)
+	triangle(1000,349,810,484,1000,490)
+	triangle(1300,620,1320,450,1220,580)
+//Haj krop
+	fill(20,68,163)
+	ellipse(1130,580,230,150)
+	ellipse(900,580,380,220)
+	fill(255,255,255)
+	
+//Mund
+     fill(255,0,0);
+     ellipse(772,617,100,35);
+     fill(255,255,255)
+     triangle(780,620,780,600,797,602)
+     triangle(760,619,760,600,775,600)
+     triangle(740,618,740,604,756,600)
+     triangle(800,621,800,602,816,607)
+     triangle(795,612,782,635,800,631)
+     triangle(760,634,775,635,770,617)
+     triangle(740,631,756,634,751,614)
+//øje
+     fill(255,255,255)
+     ellipse(750,550,20,20);
+     ellipse(780,550,20,20)
+     fill(0,0,0);
+     ellipse(750,550,10,10);
+     ellipse(780,550,10,10);
+     
+	
+	
+	
+}
+
+     
+	
+	
+	
+	
+
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	
+}
+var xPos=100;
+var yPos=100;
+    
+background(71,155,250);
+fill(255,255,255)
+
+
+function draw() {
+fill(255,255,255);
+rect(xPos,yPos,20,20);
+xPos+=1;
+yPos-=1;
+
+//rød Fisk 1
+	fill(769,0,0);
+	ellipse(500,400,80,50);
+	triangle(570,430,540,400,570,370);
+	fill(255,255,255)
+	ellipse(520,400,5,41);
+	ellipse(510,400,5,49);
+//Fisk 1 øje
+	fill(255,255,255)
+	ellipse(480,395,20,20);
+	fill(0,0,0)
+	ellipse(480,395,10,10)
+//grøn Fisk 2
+	fill(6,66,13)
+	triangle(500,550,500,650,440,600);
+	fill(53,179,75)
+	ellipse(400,600,100,70);
+	fill(6,66,13);
+	ellipse(400,600,10,5);
+	ellipse(440,607,10,5);
+	ellipse(380,615,10,5);
+	ellipse(420,585,10,5);
+	ellipse(390,580,10,5);
+	ellipse(410,620,10,5);
+	ellipse(365,607,10,5);
+	ellipse(418,605,10,5);
+	
+//Fisk 2 øje
+	fill(255,255,255);
+	ellipse(372,590,20,20);
+	fill(0,0,0);
+	ellipse(372,590,10,10)
+//Skildpadde 
+//Arme
+    fill(31,120,83)
+    ellipse(560,300,40,100);
+    ellipse(560,100,40,100);
+    ellipse(650,100,40,100);
+    ellipse(650,300,40,100);
+//Hoved og krop
+    fill(31,120,83)
+    ellipse(600,200,200,150);
+    ellipse(460,200,80,70);
+    fill(23,82,57)
+    ellipse(600,200,170,145);
+   
+//Øjne
+    fill(255,255,255);
+    ellipse(450,185,15,15);
+    ellipse(450,220,15,15);
+    fill(0,0,0);
+    ellipse(450,220,10,10);
+    ellipse(450,185,10,10);
+    
+//Net
+	line(620,396,20,10,300,300);
+	line(800,50,8,6,250,300);
+	line(798,50,618,400,400,60);
+	line(670,300,30,40,1,1);
+	line(644,350,30,40,1,1);
+	line(694,250,30,40,1,1);
+	line(773,100,30,40,1,1);
+	line(720,200,30,40,1,1);
+//Fisk 3
+    fill(232,210,65);
+    triangle(810,260,810,340,857,302);
+    ellipse(900,300,90,60);
+    fill(28,232,205);
+    ellipse(890,300,5,60);
+//Fisk 3 øjne
+    fill(255,255,255)
+    ellipse(915,290,20,20)
+    fill(0,0,0)
+    ellipse(915,290,10,10)
+//lilla Blæksprutte
+    fill(79,48,148);
+    ellipse(1165,170,27,100);
+    ellipse(1210,180,27,100);
+    ellipse(1230,180,27,100)
+    ellipse(1190,180,27,100);
+    ellipse(1239,175,27,100);
+    ellipse(1200,100,100,105);
+//Øjne
+    fill(255,255,255);
+    ellipse(1220,90,20,20);
+    ellipse(1180,90,20,20);
+    fill(0,0,0);
+    ellipse(1215,90,10,10);
+    ellipse(1175,90,10,10);
+//Mund
+    fill(235, 171, 235);
+    ellipse(1200,120,50,20);
+//orange Blæksprutte
+	fill(230,154,23);
+    ellipse(1020,180,27,100);
+    ellipse(1095,180,27,100);
+    ellipse(1060,175,27,100);
+    ellipse(1075,180,27,100)
+    ellipse(1035,180,27,100)
+    ellipse(1060,100,100,110);
+ //Øjne
+    fill(255,255,255);
+    ellipse(1080,90,20,20);
+    ellipse(1040,90,20,20);
+    fill(0,0,0)
+    ellipse(1075,90,10,10);
+    ellipse(1035,90,10,10);
+//Mund
+    fill(242,153,211);
+    ellipse(1060,120,35,20)
+//HAJ Finner
+	fill(20,68,163)
+	triangle(1000,349,810,484,1000,490)
+	triangle(1300,620,1320,450,1220,580)
+//Haj krop
+	fill(20,68,163)
+	ellipse(1130,580,230,150)
+	ellipse(900,580,380,220)
+	fill(255,255,255)
+	
+//Mund
+     fill(255,0,0);
+     ellipse(772,617,100,35);
+     fill(255,255,255)
+     triangle(780,620,780,600,797,602)
+     triangle(760,619,760,600,775,600)
+     triangle(740,618,740,604,756,600)
+     triangle(800,621,800,602,816,607)
+     triangle(795,612,782,635,800,631)
+     triangle(760,634,775,635,770,617)
+     triangle(740,631,756,634,751,614)
+//øje
+     fill(255,255,255)
+     ellipse(750,550,20,20);
+     ellipse(780,550,20,20)
+     fill(0,0,0);
+     ellipse(750,550,10,10);
+     ellipse(780,550,10,10);
+     
+	
+}
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	
+}
+
+var xPos=100;
+var yPos=100;
+    
+background(71,155,250);
+fill(255,255,255)
+
+
+function draw() {
+
+
+//rød Fisk 1
+	fill(769,0,0);
+	ellipse(500,400,80,50);
+	triangle(570,430,540,400,570,370);
+	fill(255,255,255)
+	ellipse(520,400,5,41);
+	ellipse(510,400,5,49);
+//Fisk 1 øje
+	fill(255,255,255)
+	ellipse(480,395,20,20);
+	fill(0,0,0)
+	ellipse(480,395,10,10)
+//grøn Fisk 2
+	fill(6,66,13)
+	triangle(500,550,500,650,440,600);
+	fill(53,179,75)
+	ellipse(400,600,100,70);
+	fill(6,66,13);
+	ellipse(400,600,10,5);
+	ellipse(440,607,10,5);
+	ellipse(380,615,10,5);
+	ellipse(420,585,10,5);
+	ellipse(390,580,10,5);
+	ellipse(410,620,10,5);
+	ellipse(365,607,10,5);
+	ellipse(418,605,10,5);
+	
+//Fisk 2 øje
+	fill(255,255,255);
+	ellipse(372,590,20,20);
+	fill(0,0,0);
+	ellipse(372,590,10,10)
+//Skildpadde 
+//Arme
+    fill(31,120,83)
+    ellipse(560,300,40,100);
+    ellipse(560,100,40,100);
+    ellipse(650,100,40,100);
+    ellipse(650,300,40,100);
+//Hoved og krop
+    fill(31,120,83)
+    ellipse(600,200,200,150);
+    ellipse(460,200,80,70);
+    fill(23,82,57)
+    ellipse(600,200,170,145);
+       
+//Net
+	line(620,396,20,10,300,300);
+	line(800,50,8,6,250,300);
+	line(798,50,618,400,400,60);
+	line(670,300,30,40,1,1);
+	line(644,350,30,40,1,1);
+	line(694,250,30,40,1,1);
+	line(773,100,30,40,1,1);
+	line(720,200,30,40,1,1);
+
+//Øjne
+    fill(255,255,255);
+    ellipse(450,185,15,15);
+    ellipse(450,220,15,15);
+    fill(0,0,0);
+    ellipse(450,220,10,10);
+    ellipse(450,185,10,10);
+
+//Fisk 3
+    fill(232,210,65);
+    triangle(810,260,810,340,857,302);
+    ellipse(900,300,90,60);
+    fill(28,232,205);
+    ellipse(890,300,5,60);
+//Fisk 3 øjne
+    fill(255,255,255)
+    ellipse(915,290,20,20)
+    fill(0,0,0)
+    ellipse(915,290,10,10)
+//lilla Blæksprutte
+    fill(79,48,148);
+    ellipse(1165,170,27,100);
+    ellipse(1210,180,27,100);
+    ellipse(1230,180,27,100)
+    ellipse(1190,180,27,100);
+    ellipse(1239,175,27,100);
+    ellipse(1200,100,100,105);
+//Øjne
+    fill(255,255,255);
+    ellipse(1220,90,20,20);
+    ellipse(1180,90,20,20);
+    fill(0,0,0);
+    ellipse(1215,90,10,10);
+    ellipse(1175,90,10,10);
+//Mund
+    fill(235, 171, 235);
+    ellipse(1200,120,50,20);
+//orange Blæksprutte
+	fill(230,154,23);
+    ellipse(1020,180,27,100);
+    ellipse(1095,180,27,100);
+    ellipse(1060,175,27,100);
+    ellipse(1075,180,27,100)
+    ellipse(1035,180,27,100)
+    ellipse(1060,100,100,110);
+ //Øjne
+    fill(255,255,255);
+    ellipse(1080,90,20,20);
+    ellipse(1040,90,20,20);
+    fill(0,0,0)
+    ellipse(1075,90,10,10);
+    ellipse(1035,90,10,10);
+//Mund
+    fill(242,153,211);
+    ellipse(1060,120,35,20)
+//HAJ Finner
+	fill(20,68,163)
+	triangle(1000,349,810,484,1000,490)
+	triangle(1300,620,1320,450,1220,580)
+//Haj krop
+	fill(20,68,163)
+	ellipse(1130,580,230,150);
+	ellipse(900,580,380,220)
+	fill(255,255,255)
+	
+//Mund
+     fill(255,0,0);
+     ellipse(772,617,100,35);
+     fill(255,255,255)
+     triangle(780,620,780,600,797,602)
+     triangle(760,619,760,600,775,600)
+     triangle(740,618,740,604,756,600)
+     triangle(800,621,800,602,816,607)
+     triangle(795,612,782,635,800,631)
+     triangle(760,634,775,635,770,617)
+     triangle(740,631,756,634,751,614)
+//øje
+     fill(255,255,255)
+     ellipse(750,550,20,20);
+     ellipse(780,550,20,20)
+     fill(0,0,0);
+     ellipse(750,550,10,10);
+     ellipse(780,550,10,10);
+//Skald
+     fill(197,232,230)
+     ellipse(700,340,20,20);
+     ellipse(600,440,20,20);
+     ellipse(600,240,20,20);
+     ellipse(200,440,20,20);
+     ellipse(800,400,20,20);
+     ellipse(600,100,20,20);
+     ellipse(500,389,20,20);
+     ellipse(900,700,20,20);
+     ellipse(800,150,20,20);
+     ellipse(1200,1000,20,20);
+     ellipse(370,100,20,20);
+     ellipse(1000,500,20,20);
+     ellipse(1300,600,20,20);
+     ellipse(1340,90,20,20);
+     ellipse(1300,400,20,20);
+     ellipse(1200,800,20,20);
+     ellipse(200,300,20,20);
+     ellipse(1210,300,20,20);
+     rect(1222,700,20,35)
+     rect(1000,300,15,15)
+     rect(200,700,30,20)
+     rect(400,300,30,20)
+     rect(800,600,30,20)
+     rect(1200,400,30,20)
+     rect(1300,440,30,20)
+     rect(1100,1100,30,20)
+
+}
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

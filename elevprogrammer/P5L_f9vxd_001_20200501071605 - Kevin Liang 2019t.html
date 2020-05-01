@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>f9vxd_001</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//f9vxd_001
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+}
+
+function draw() {
+	noStroke();
+	//Background
+	background(161, 208, 217);
+
+	//Box for name 
+	fill(0, 0, 0);
+	rect(50, 85, 1316, 70);
+
+	//Product box
+	fill(219, 192, 57)
+	rect(50, 200, 250, 70)
+
+	//Product name
+	fill(255, 255, 255);
+	textSize(50);
+	text("MEAT", 100, 215);
+
+	//Questions box
+	rect(50, 315, 1316, 400);
+
+	//Question
+	fill(0, 0, 0)
+	textSize(50)
+	text("Have you eaten any meat the past week?", 250, 420)
+
+	//Name for app
+	fill(255, 255, 255);
+	textSize(60)
+	text("CARE BUYING", 530, 95);
+
+	//NO Button 
+
+	var btn1 = {
+		x: 400,
+		y: 600,
+		width: 150,
+		height: 50
+	};
+
+	var drawButton = function(btn) {
+		fill(204, 104, 204);
+		rect(btn.x, btn.y, btn.width, btn.height, 5);
+		fill(0, 0, 0);
+		textSize(19);
+		textAlign(LEFT, TOP);
+		text("NO", btn.x + 60, btn.y + btn.height / 3);
+	};
+
+
+	drawButton(btn1);
+
+	//YES Button
+	var btn2 = {
+		x: 900,
+		y: 600,
+		width: 150,
+		height: 50
+	};
+
+	var drawButton = function(btn2) {
+		fill(204, 104, 204);
+		rect(btn2.x, btn2.y, btn2.width, btn2.height, 5);
+		fill(0, 0, 0);
+		textSize(19);
+		textAlign(LEFT, TOP);
+		text("YES", btn2.x + 55, btn2.y + btn2.height / 3);
+	};
+
+	drawButton(btn2);
+
+	//Next page and question 
+	if(mouseIsPressed && mouseX > btn.x && mouseX === btn.width && mouseY < btn.y && mouseY === btn.height) {
+		fill(255, 255, 255);
+		rect(50, 315, 1316, 400);
+		text("What kind of meat did you eat?", 250, 400);
+		fill(204,104,204);
+		rect(btn.x,btn.y,btn.width,btn.height);
+		fill(0,0,0);
+		text("MAMMAL",btn.x+60,btn.y,btn.height/3)
+
+
+	};
+
+}
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

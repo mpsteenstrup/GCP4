@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bxpz5</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//bxpz5
+
+//Hjælp
+// Fonts
+//Mangler:
+//failscreen, points, random function.
+
+function setup() {
+	createCanvas(1920,1080);
+
+}
+//preload
+//Skrift scene ved at ændre level værdien
+var level = 0;
+var niveau = 0;
+var item = 0;
+var success = 1;
+var choice = 0;
+var points = 0;
+var highscore = 0;
+
+//objekter
+	var pB = {
+    name: "Plastic Bottle",
+    co2: 82.8,
+    pro: "a "
+	 };
+  var cL = {
+    name: "One month of a cow's life",
+    co2: 191000,
+    pro: ""
+	};
+  var hL = {
+    name: "One month of a human's life",
+    co2: 32000,
+    pro: ""
+	 };
+  var bA = {
+	name: "1 kg bananas",
+	co2: 480,
+	pro: ""
+	};
+  var pea = {
+	name: "1 kg of pea protein",
+	co2: 4000,
+	pro: ""
+	};
+	var potato = {
+	name: "1 kg of potatoes",
+	co2: 250,
+	pro:""
+	};
+	var gB ={
+	name: "Plastic Bag",
+	co2: 33,
+	pro: "a "
+	};
+	var meat ={
+	name: "1 kg of meat protein",
+	co2: 350000,
+	pro: ""
+	};
+	var gas ={
+	name: "Car usage of 1 L gas",
+	co2: 2387,
+	pro: ""
+	};
+
+var cucumber ={
+	name: '1 Kg of cucumber',
+co2: 410,
+pro: ""
+};
+
+
+var object1 = function(vare,co2){
+	fill(0,0,0);
+	textSize(50);
+	text(vare,300,300);
+  textSize(20);
+  text("emits",400,330);
+  textSize(50);
+  text(co2+" gram CO2",300,375);
+};
+
+var object2 = function(vare,vare2,pro){
+	fill(0,0,0);
+	textSize(50);
+	text(vare,1300,300);
+  textSize(20);
+  text("emits",1405,330);
+  fill(0,255,0);
+  rect(1340,350,200,60,20);
+  fill(255,0,0);
+  rect(1340,425,200,60,20);
+  textSize(30);
+  fill(0,0,0);
+  text("more",1400,390);
+  text("less",1410,465);
+  textSize(20);
+  text("CO2 than "+ pro + vare2,1355,510);
+};
+
+var menu = function() {
+	background(22, 70, 55);
+	var rectX = 1920/2-300;
+	var rectY = 1080/2-40;
+		noStroke();
+	fill(40, 180, 99);
+	rect(rectX,rectY, 600, 100, 20);
+	fill(0, 0, 0);
+	textSize(50);
+	text("Start", rectX+240, rectY+65);
+	if(mouseIsPressed && mouseY > 500 && mouseY < 600 && mouseX > 660 && mouseX < 1260) {
+		level = level = 1;
+	}
+	textSize(20);
+	text('Made by: Axel, William og Rafael', 20, 920);
+	textSize(100);
+	fill(255, 255, 0);
+	text('Guess the CO2 Footprint', 1920/4, 1080/4);
+	textSize(50);
+	fill(0,0,0);
+	text('Highscore: '+ highscore,1600,900);
+};
+
+var score = function(name2,co22){
+	frameRate(10);
+	if (mouseIsPressed&&mouseY < 410 && mouseY > 350 && mouseX > 1340 && mouseX < 1540){
+			choice = choice = 1;
+	} else if (mouseIsPressed&&mouseY < 485 && mouseY > 425 && mouseX > 1340 && mouseX < 1540){
+			choice = choice = 2;
+		}
+  if (choice > 0){
+    if (choice === success){
+      points += 1;
+      niveau += 1;
+      choice = choice = 0;
+    } else{
+      fail(name2,co22);
+    }
+  }
+};
+
+var spil = function(name1,co21,pro1,name2,co22,pro2) {
+	background(236, 112, 99);
+	stroke(0);
+	strokeWeight(10);
+	line(960,0,960,1080);
+	//vs circle
+	noFill();
+	strokeWeight(8);
+	circle(960,540,100);
+	fill(236,112,99);
+	circle(960,540,100);
+	fill(0,0,0);
+	noStroke();
+	textSize(50);
+	text("VS",925,560);
+	textSize(25);
+	text('score: '+ points,1750,50);
+	//Objekter
+	object1(name1,co21);
+    object2(name2,name1,pro1);
+    	if (co21 > co22){
+    		success = success = 2;
+    	} else if (co21 < co22){
+    		success = success = 1;
+    	}
+    score(name2,co22);
+};
+
+var fail = function(name2,co22){
+	background(234,56,87);
+	textSize(69);
+	text('You were wrong',720,320);
+	fill(0,255,90);
+	rect(666,400,600,100,20);
+	fill(0,0,0);
+	textSize(30);
+	text(name2 +' emits '+co22 + " gram CO2",770,380);
+	textSize(40);
+	text('Go back to start screen',768,463);
+	if(mouseIsPressed&& mouseX > 666 && mouseX < 1266 && mouseY > 400 && mouseY < 500){
+		choice = choice = 0;
+		if (points > highscore){
+			highscore = highscore = points;
+		}
+		points = points = 0;
+		level = level = 0;
+		niveau = niveau = 0;
+	};
+};
+
+function draw() {
+	if (level===0){
+		menu();
+	} else if (niveau === 0){
+		spil(gB.name,gB.co2,gB.pro,pB.name,pB.co2,pB.pro);
+	} else if (niveau===1){
+		spil(pB.name,pB.co2,pB.pro,bA.name,bA.co2,bA.pro);
+	} else if (niveau === 2){
+		spil(bA.name,bA.co2,bA.pro,potato.name,potato.co2,potato.pro);
+	} else if (niveau === 3){
+		spil(potato.name,potato.co2,potato.pro,cL.name,cL.co2,cL.pro);
+	} else if (niveau === 4){
+		spil(cL.name,cL.co2,cL.pro,meat.name,meat.co2,meat.pro);
+	} else if (niveau === 5){
+		spil(meat.name,meat.co2,meat.pro,pea.name,pea.co2,pea.pro);
+	} else if (niveau === 6){
+		spil(pea.name,pea.co2,pea.pro,cucumber.name,cucumber.co2,cucumber.pro);
+	} else if(niveau === 7){
+		spil(cucumber.name,cucumber.co2,cucumber.pro,gas.name,gas.co2,gas.pro);
+	} else if(niveau === 8){
+		spil(gas.name,gas.co2,gas.pro,hL.name,hL.co2,hL.pro);
+	} else if(niveau === 9){
+		spil(hL.name,hL.co2,hL.pro,gB.name,gB.co2,gB.pro);
+	} else{
+		niveau = niveau = 0;
+	}
+};
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>g6g4v</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//g6g4v
+
+function setup() {
+	createCanvas(1360, 768);
+}
+
+var xPos1 = 1360;
+var xPos2 = 1360;
+
+var afstand = 300;
+
+
+var karakterX = 600
+var karakterY = 560
+
+var flyX = 850
+var flyY = 525
+
+var f = 2;
+var d = 2;
+
+var startside = function() {
+	background(250, 247, 247);
+	fill(22, 79, 1);
+	textSize(50);
+	text("Labyrint Lars", 523, 170);
+	fill(0, 0, 0);
+	textSize(20);
+	text("Kom sikkert over floden uden at ramme træstammerne,", 435, 250);
+	text(" for at nå til klimakompensationen på den anden side.", 437, 280)
+	stroke(46, 97, 56);
+	fill(255, 232, 255);
+	rect(550, 400, 230, 100);
+	fill(65, 201, 103);
+	textSize(50);
+	noStroke();
+	text("START", 583, 467);
+	fill(46, 97, 56);
+	textSize(20);
+};
+
+var tegntræstammeende = function(r, y, v) {
+	stroke(100, 90, 80);
+	arc(r - afstand * v + 175, y, 37, 40, 89.53, 180.65);
+	arc(r - afstand * v + 175, y, 27, 32, 89.53, 180.65);
+	arc(r - afstand* v + 175, y, 17, 22, 89.53, 180.65);
+}
+
+var død = function(){
+	background(0, 0, 0);
+	fill (500, 500, 500);
+	text("øv, du døde.", 600, 200);
+	text("Tryk ctrl + enter for at prøve igen", 520, 250);
+}
+
+
+
+function draw() {
+
+
+	background(23, 135, 5);
+ 
+	//vand 
+	noStroke();
+	fill(107, 170, 247);
+	rect(1, 130, 1920, 400);
+
+
+	//træstammerække 1 (mod højre)
+	for(var j = 0; j < 20; j++) {
+		noStroke();
+		fill(66, 38, 14);
+		rect(xPos2 - afstand * j, 160, 175, 50);
+		arc(xPos2 - afstand * j, 185, 45, 50, 89.53, 180.65);
+		fill(160, 170, 150);
+		arc(xPos2 - afstand * j + 175, 185, 45, 50, 89.53, 180.65);
+		tegntræstammeende(xPos2, 185, j);
+	}
+ 
+	//træstammerække 2 (mod venstre)
+	for(var i = 0; i < 200; i++) {
+		noStroke();
+		fill(66, 38, 14);
+		rect(xPos1 - afstand * i, 260, 175, 50);
+		arc(xPos1 - afstand * i, 285, 45, 50, 89.53, 180.65);
+		fill(160, 170, 150);
+		arc(xPos1 - afstand * i + 175, 285, 45, 50, 89.53, 180.65);
+		tegntræstammeende(xPos1, 285, i);
+	}
+ 
+	//træstammerække 3 (mod højre)
+	for(var j = 0; j < 20; j++) {
+		noStroke();
+		fill(66, 38, 14);
+		rect(xPos2 - afstand * j, 360, 175, 50);
+		arc(xPos2 - afstand * j, 385, 45, 50, 89.53, 180.65);
+		fill(160, 170, 150);
+		arc(xPos2 - afstand * j + 175, 385, 45, 50, 89.53, 180.65);
+		tegntræstammeende(xPos2, 385, j);
+	}
+ 
+	//træstammerække 4 (mod højre) 
+	for(var i = 0; i < 20; i++) {
+		noStroke();
+		fill(66, 38, 14);
+		rect(xPos1 - afstand * i, 460, 175, 50);
+		arc(xPos1 - afstand * i, 485, 45, 50, 89.53, 180.65);
+		fill(160, 170, 150);
+		arc(xPos1 - afstand * i + 175, 485, 45, 50, 89.53, 180.65);
+		tegntræstammeende(xPos1, 485, i);
+	}
+ 
+	//træstamme bevægelse mod venstre
+	xPos1--;
+	if(xPos1 < 1020) {
+		xPos1 = 1020 + afstand;
+	}
+ 
+	//træstamme bevægelse mod højre
+	xPos2++;
+	if(xPos2 > 1700) {
+		xPos2 = 1700 - afstand;
+	}
+
+
+	//Karakter
+	img = createImg('https://pbs.twimg.com/profile_images/610120554738266112/I4pl2ygE_400x400.jpg');
+	image(img, karakterX, karakterY, 50, 50)
+ 
+	//Karakter bevægelse opad
+	if(keyIsDown(UP_ARROW)) {
+		karakterY = karakterY - 3
+	}
+ 
+	//Karakter bevægelse nedad
+	if(keyIsDown(DOWN_ARROW)) {
+		karakterY = karakterY + 3
+ 	}
+ 
+	//Karakter bevægelse højre
+	if(keyIsDown(RIGHT_ARROW)) {
+		karakterX = karakterX + 3
+	}
+ 
+	//Karakter bevægelse venstre
+	if(keyIsDown(LEFT_ARROW)) {
+		karakterX = karakterX - 3
+	}
+
+	//Træ
+	imgtræ = createImg('https://pngimage.net/wp-content/uploads/2018/06/tr%C3%A6-png.png')
+	image(imgtræ, 600, 30, 100, 100)
+   
+	//Fly
+	imgfly = createImg('https://cdn.pixabay.com/photo/2014/04/02/17/05/airplane-307909_960_720.png')
+	image(imgfly, flyX, flyY, 150, 150)
+	
+	//sker noget når man går ind i flyet
+	if(karakterX > 800 && karakterX < 1000 && karakterY > 500 && karakterY < 600) {
+		stroke(4)
+		fill(255, 255, 255);
+		rect(1050, 555, 204, 80);
+		textSize(12)
+		noStroke()
+		fill(0, 0, 0)
+		text("Er du nu sikker på, at det er en god", 1057, 568)
+		text("idé at flyve? Det ville måske være", 1057, 580)
+		text("en bedre idé at tage den over floden.", 1057, 592)
+	}
+    
+	//Piratfisk
+	imgfisk = createImg('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pirate_fish.svg/600px-Pirate_fish.svg.png')
+	image(imgfisk, 200, 210, 50, 50)
+	image(imgfisk, 500, 210, 50, 50)
+	image(imgfisk, 300, 410, 50, 50)
+	image(imgfisk, 650, 410, 50, 50)
+	image(imgfisk, 850, 310, 50, 50)
+
+
+	//Sker noget når man går ind i træet
+	if(karakterX > 600 && karakterX < 700 && karakterY > 30 && karakterY < 130) {
+		stroke(4)
+		fill(255, 255, 255)
+		rect(398, 30, 204, 80)
+       
+		textSize(12)
+		fill(0, 0, 0)
+		noStroke()
+		text('Tillykke! Du kom over floden :)', 400, 42)
+		text("Du har optjent én klimakompensation,", 400, 55)
+		text("og har gjort det virtuelle klima en", 400, 67)
+		text("tjeneste. Hvis du vil gøre det virkelige", 400, 79)
+		text("klima en tjeneste, kan du besøge", 400, 91)
+		text("verdensskove.org og donere et beløb", 400, 103)
+	}
+
+
+	//hvis du går ind i piratfisk
+	if(karakterX > 608 && karakterX < 693 && karakterY > 374 && karakterY < 443) {
+		d = -2;
+	}
+	if(karakterX > 256 && karakterX < 342.5 && karakterY > 374 && karakterY < 443) {
+		d = -2;
+	}
+	if(karakterX > 806 && karakterX < 894 && karakterY > 272.5 && karakterY < 347) {
+		d = -2;
+	}
+		if(karakterX > 456 && karakterX < 543 && karakterY > 173 && karakterY < 245) {
+		d = -2;
+	}
+		if(karakterX > 156 && karakterX < 243.5 && karakterY > 173 && karakterY < 245) {
+		d = -2;
+	}
+
+
+	//startside
+	if(f > 0) {
+		startside();
+	}
+	
+		if(mouseIsPressed && mouseX > 550 && mouseX < 780 && mouseY > 400 && mouseY < 500) {
+			f = -2;
+		}
+
+	//ommer side
+	if(d < 0){
+		død();
+	}
+
+	//mouskoordinater
+	fill(0, 0, 0);
+	noStroke();
+	textSize(15);
+	text(mouseX + "," + mouseY, mouseX + 6, mouseY + 13);
+	//karakter koordinater
+	if(f < 0){
+	 text(karakterX + "," + karakterY, 1200, 100);
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>92hcg</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//92hcg
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	
+}
+function draw() {
+	background(255,201,201);
+//gulv
+	fill(100,100,100);
+	strokeWeight(1);
+	quad(-50,850,1500,850,1200,500,220,500,50,50,50,50);
+//overskrift
+	textSize(40);
+	text("CO2 Tøjbutik",600,80);
+//væg
+	//venstre vægstreg
+	line(220,0,220,500);
+	//højre vægstreg
+	line(1200,0,1200,500);
+//bøjlestang
+	stroke(0,0,0);
+	strokeWeight(10);
+	line(210,150,1210,150);
+//Bøjler
+	fill(255,201,201);
+	strokeWeight(5);
+	//Bøjle 1
+	stroke(100,100,100);
+	line(300,150,300,170);
+	triangle(300,170,260,200,340,200);
+	//Bøjle 2
+	stroke(100,100,100);
+	line(550,150,550,170);
+	triangle(550,170,510,200,590,200);
+	//Bøjle 3
+	stroke(100,100,100);
+	line(800,150,800,170);
+	triangle(800,170,760,200,840,200);
+	//Bøjle 4
+	stroke(100,100,100);
+	line(1100,150,1100,170);
+	triangle(1100,170,1060,200,1140,200);
+//Jeans
+	fill(158,195,219);
+	// venstre bukseben
+	stroke(100,100,255);
+	quad(290,480,250,480,250,200,300,200,50,50,50,50);
+	//højre bukseben
+	quad(350,480,310,480,300,200,350,200,50,50,50,50);
+	//firkant i toppen
+	square(250,200,100,20);
+	//knap
+	strokeWeight(1);
+	circle(300,210,5);
+	//lommer
+	strokeWeight(3);
+	triangle(250,220,275,220,250,255);
+	triangle(325,220,350,220,350,255);
+//Kjole
+	fill(245,235,100);
+	stroke(245,200,20);
+	square(505,220,90,70,10,10,0);
+	line(520,220,520,190);
+	line(580,220,580,190);
+	quad(630,440,470,440,505,290,595,290);
+	strokeWeight(7);
+	line(505,290,595,290);
+//Shorts
+	stroke(50,50,225);
+	fill(100,150,255);
+	strokeWeight(3);
+	quad(740,280,860,280,840,200,760,200);
+	triangle(800,270,795,280,805,280);
+	//linning
+	strokeWeight(1);
+	line(760,215,840,215);
+	//knap
+	strokeWeight(2);
+	circle(800,208,10);
+	//lynlås
+	line(795,215,795,255);
+	line(795,255,800,270);
+	line(803,215,800,270);
+	//lommer
+	line(775,215,750,240);
+	line(825,215,850,240);
+//T-shirt
+	stroke(0,0,50);
+	fill(900,110,155);
+	square(1050,200,100,105,10,10,10);	
+ //ærmer
+	square(1020,200,30,100,10,10,0);
+	square(1150,200,30,100,10,10,0);
+	fill(255,201,201);
+	arc(1100,171,70,82,26,40);
+//vindue
+	stroke(0,0,50);
+	fill(150,200,250);
+	quad(100,100,100,400,200,300,200,50,50,50,50,50);
+
+//Venstre Sko
+	fill(190,165,205);
+	square(505,490,70,28,70,1,0,70);
+	arc(558, 492, 30, 5, 490, 490);
+	line(520,500,520,490);
+	line(530,500,530,490);
+//Højre Sko
+	square(585,490,70,28,70,1,0,70);
+	arc(638,492,30,5,490,490);
+	line(610,500,610,490);
+	line(600,500,600,490);
+//Venstre Sok
+	noStroke();
+	square(910,520,40,24,70,1,0,70);
+	rect(940,484,25,60,0,0,10,0);
+//Højre Sok
+	square(980,520,40,24,70,1,0,70);
+	rect(1005,484,25,60,0,0,10,0);
+	stroke(160,0,295);
+	line(920,521,920,544);
+	line(990,521,990,544);
+	line(941,495,964,495);
+	line(1006,495,1029,495);
+	stroke(0,0,0);
+//Plakat på højre væg
+	fill(335,290,100)
+	quad(1300,200,1360,230,1360,370,1300,330)
+	textSize(20)
+	fill(255,105,255)
+	text("T",1304,230)
+	text("Ø",1319,238)
+	text("J",1340,247)
+	text("P",1304,260)
+	text("R",1319,267)
+	text("O",1337,274)
+	text("D",1302,290)
+	text("U",1320,297)
+	text("K",1340,304)
+	text("T",1302,320)
+	text("I",1315,326)
+	text("O",1322,332)
+	text("N",1339,340)
+	
+
+//shorts if
+if(mouseIsPressed && mouseX > 740 && mouseX < 860 && mouseY > 200 && mouseY < 280){
+	textSize(30);
+	fill(255,255,255);
+	text("Shorts udleder i gennemsnit 15 Kg CO2",600,400);
+	text("og bruger 2800 L vand ved produktion",600,450);
+}
+//kjole if
+if(mouseIsPressed && mouseX > 470 && mouseX < 630 && mouseY > 200 && mouseY < 440){
+	textSize(30);
+	fill(255,255,255);
+	text("En kjole udleder i gennemsnit 10,2 Kg CO2",350,400);
+	text("og bruger 2000 L vand ved produktion",350,450);
+}
+//tShirt if
+if(mouseIsPressed && mouseX > 1020 && mouseX < 1180 && mouseY > 200 && mouseY < 305){
+	textSize(30);
+	fill(255,255,255);
+	text("En t-shirt udleder i gennemsnit 8,8 Kg CO2",850,400);
+	text("og bruger 1400 L vand ved produktion",900,450);
+}
+//Bukser if
+if(mouseIsPressed && mouseX > 250 && mouseX < 350 && mouseY > 200 && mouseY < 480){
+	textSize(30);
+	fill(255,255,255);
+	text("Et par jeans udleder i gennemsnit 33,4 Kg CO2",100,400);
+	text("og bruger 5600 L vand ved produktion",100,450);
+}
+//Sko if
+if(mouseIsPressed && mouseX > 500 && mouseX < 650 && mouseY > 480 && mouseY < 520){
+	textSize(30);
+	fill(255,255,255);
+	text("Et par sko udleder i gennemsnit 12,5 kg CO2", 550,460);
+}
+//Sokker if
+if(mouseIsPressed && mouseX > 900 && mouseX < 1025 && mouseY > 480 && mouseY < 550){
+	textSize(30);
+	fill(255,255,255);
+	text("En enkelt sok udleder omkring 7,3 kg CO2",810,430);
+	text("og produktionen udleder også 300g metan",810,460 )
+	
+}
+//fakta tekst boks
+	fill(158,255,169);
+	square(350,530,550,200,10,10,10);
+	fill(0,0,0);
+	textSize(20);
+	text("Ca 55% af et stykke tøj's totale energiforbrug ligger i det",360,560);
+	text("private forbrug (vask og tørring af tøj mm.)",360,585);
+	text("I gennemsnit køber hver dansker ca. 16 kg tøj om året,",360,630); 
+	text("mens verdens gns. er 5 kg", 358,655);
+	text("77 mio. bomuldsbønder udsættes hvert år for sprøjtegift",360,700);
+
+//Plakat
+	if(mouseIsPressed && mouseX > 1300 && mouseX < 1360 && mouseY > 200 && mouseY < 370){
+	textSize(20);
+	fill(155,255,255);
+	text("Tøj og tekstiler udgør den fjerdestørste klimabelastning i Europa",560,400);
+	text("Arbejdsforholdende i tøjproduktion er brutale i mange lande",560,430);
+	text("Vores tøjforbrug i Danmark forventes at stige med 63% fra 2015 til 2030",560,460);
+}
+}
+	
+
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
