@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>syrnb</title>
+	<meta charset="utf-8">
+	<!-- Compiled w/ P5LIVE, http://github.com/ffd8/p5live -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+	<style type="text/css">
+		body{
+			margin:0;
+			overflow:hidden;
+		}
+		canvas{
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:-1;
+			width:100vw;
+			height:100vh;
+			margin:0;
+		}
+	</style>
+	<script type="text/javascript">
+		// eco-mode = only render if window focused
+		window.onblur = function () {
+			noLoop()
+		}
+		window.onfocus = function () {
+			loop();
+		}
+	</script>
+<script type="text/javascript">
+//syrnb
+
+
+function preload() {
+	img = createImg('http://mpsteenstrup.dk/FN_maal/FN1.jpg');
+	img.hide();
+}
+
+function setup() {
+
+createCanvas(windowWidth, windowHeight);
+
+noStroke();
+
+background(0,150,220);
+//Gras
+fill(0,255,50);
+rect(0,400,windowWidth, windowHeight)
+
+
+
+fill(255,255,255)
+
+//Sky
+var skystørrelse=55
+
+var andensky=skystørrelse+15
+
+var skyplacering=850
+
+var andenskyplacering= skyplacering+30
+
+ellipse(850,100,skystørrelse,skystørrelse);
+ellipse(andenskyplacering,100,andensky,andensky);
+ellipse(915,100,skystørrelse,skystørrelse);
+
+var skystørrelsetre=skystørrelse +10
+
+ellipse(750,160,skystørrelsetre,skystørrelse);
+ellipse(720,135,andensky,andensky);
+ellipse(690,150,skystørrelsetre,skystørrelse);
+
+
+//Vej
+fill(50,50,50);
+rect(0,500,windowWidth,200);
+fill(200,200,30);
+rect(0,580,50,25);
+rect(75,580,50,25);
+rect(150,580,50,25);
+rect(225,580,50,25);
+rect(300,580,50,25);
+rect(375,580,50,25);
+rect(450,580,50,25);
+rect(525,580,50,25);
+rect(600,580,50,25);
+rect(675,580,50,25);
+rect(750,580,50,25);
+rect(825,580,50,25);
+rect(900,580,50,25);
+rect(975,580,50,25);
+rect(1050,580,50,25);
+rect(1125,580,50,25);
+rect(1200,580,50,25);
+rect(1275,580,50,25);
+rect(1350,580,50,25);
+rect(1425,580,50,25);
+rect(1500,580,50,25);
+
+//Træ
+fill(100,45,15);
+triangle(1200,475,1275,415,1350,475);
+rect(1230,275,75,200);
+fill(38,130,8);
+ellipse(1230,250,215,140);
+ellipse(1313,235,220,150);
+ellipse(1250,175,180,180)
+
+//Big Mon
+fill(10,10,10)
+ellipse()
+
+
+fill(220,200,0);
+
+textSize(25);
+
+
+text("klik på mig",660,135,502,500);
+
+}
+
+
+function draw(){
+	
+}
+
+function mousePressed() {
+	fill(0);
+	if(mouseX<800 && mouseX>660 && mouseY>135 && mouseY<175){
+	ellipse(660,3000,200,200);
+	fill(250,250,250)
+  text('test af musen', 660, 300);
+	}
+}
+
+
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

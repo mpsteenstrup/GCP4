@@ -37,21 +37,45 @@
 let Tur;
 let tree;
 let stw;
+let pond;
+let fish;
 function preload(){
-  tree = createImg("https://github.com/mpsteenstrup/GCP4/blob/master/FN_maal/Tree.png?raw=true");
-  Tur = createImg('https://github.com/mpsteenstrup/GCP4/blob/master/FN_maal/Turtle.png?raw=true');
-  stw = createImg('https://github.com/mpsteenstrup/GCP4/blob/master/FN_maal/straws.png?raw=true');
-  tree.hide();
+  tree = createImg("https://raw.githubusercontent.com/mpsteenstrup/GCP4/master/FN_maal/Tree.png","");
+  Tur = createImg('https://raw.githubusercontent.com/mpsteenstrup/GCP4/master/FN_maal/Turtle.png',"");
+  stw = createImg('https://raw.githubusercontent.com/mpsteenstrup/GCP4/master/FN_maal/straws.png',"");
+  pond = createImg('https://user-images.githubusercontent.com/64616523/80766454-c3129280-8b45-11ea-8ec3-70a946567edf.png',"");
+  fish = createImg('https://user-images.githubusercontent.com/64616523/80766553-f523f480-8b45-11ea-9412-79cb48d491e6.png',"");
   Tur.hide();
+  tree.hide();
   stw.hide();
+  pond.hide();
+  fish.hide();
+  }
 
-}
 //Globale variabler
-
+  var GO = 3;
+  var p = 0;
+  var f = 0;
   //Turtle var
   var xPosT = 375;
   var yPosT = 735;
   var move = 0;
+ //straws
+  var xPosS = 400;
+  var yPosS = 400;
+  var Smove = 0;
+  //straws 2
+  var xPosS2 = 380
+  var yPosS2 = 400
+  var Smove2 = 0;
+  //straws 3
+  var xPosS3 = 350
+  var yPosS3 = 400
+  var Smove3 = 0;
+  //straws 4
+  var xPosS4 = 390
+  var yPosS4 = 400
+  var Smove4 = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -65,52 +89,87 @@ function baggrund() {
   //noStroke();
   fill(39,209,99);
   rect(0,400,2000,1600);
-
-  /*
+  
+    push();
+  noStroke();
+  translate(800, 0);
+  fill(255,255,0);
+  ellipse(0,0,250,250);
+  rotate(184);
+    for (let i = 0; i < 9; i++) {
+  rect(0,-185, 10, 50);
+    rotate(10);
+  }
+  pop();
+ push();
   //Træ kordinater
-  var xPosT = 200;
-  var yPosT = 275;
-
+  var xPosG = 390;
+  var yPosG = 275;
+  
   //Stamme
   fill(150, 100, 25);
-  rect(xPosT, yPosT, 40, 200);
-
+  rect(xPosG, yPosG, 40, 200);
+  
   //Blade
-  fill(50, 200, 50);
-  translate(xPosT+20, yPosT);
+  noStroke();
+  fill(0, 120, 30);
+  translate(xPosG+20, yPosG);
   rotate(-55);
   for (let i = 0; i < 20; i++) {
-    ellipse(-50, 0, 100, 25);
+    ellipse(-40, 0, 100, 20);
     rotate(15);
   }
   rotate(-245);
   translate(0,0);
-  */
-
+ pop();
+  
   //Træ Kordinater
   var wPosPT = tree.width;
   var hPosPT = tree.height;
   var xPosPT = 100;
   var yPosPT = 50;
   //Træ
-  image(tree, xPosPT ,yPosPT, wPosPT/1.5, hPosPT/1.5)
+  image(tree, xPosPT-50 ,yPosPT, wPosPT/1.5, hPosPT/1.5)
   push();
   translate(wPosPT,0);
   scale(-1,1);
-  image(tree, -xPosPT*3 ,yPosPT*1.9, wPosPT/1.7, hPosPT/1.7);
+  image(tree, -xPosPT*3 +20,yPosPT*1.9, wPosPT/1.7, hPosPT/1.7);
   pop();
+  push();
+  image(pond,70,500,pond.width/3, pond.height/3)
+  image(Tur,190,560,Tur.width/3.2, Tur.height/3.2)
+  pop();
+  push();
+  fill(130, 100, 25)
+  rect(600, 600+25, 15, 100-25);
+  rect(500,500+25,213,100);
+  noStroke();
+  rect(601, 595+25, 13, 104-25);
+  fill(0,0,0);
+  stroke(130, 100, 25);
+  textFont("STIX");
+  textSize(14);
+  text("Hey!", 590, 540);
+  text("Welcome to the jungle. When you", 505, 558);
+  text("click on the pond over to the left,", 505, 576);
+  text("you will be able to help our little", 505, 593);
+  text("turtle friend, with your arrow keys!", 505, 610);
+  pop();
+  
 }
+
 function setup() {
   createCanvas(800, 800);
   angleMode(DEGREES);
 }
-function turtle_game() {
 
+function turtle_game() {
+  
   background(0,40,255);
   //Walls / lines
   stroke(0 ,160, 50);
   strokeWeight(5);
-
+  
   //Walls
   push();
   fill(0,0,0);
@@ -124,7 +183,7 @@ function turtle_game() {
   rect(425, 0, 800, 25);
   rect(775, 0, 25, 400);
   pop();
-
+  
   //midle box
   push();
   noStroke();
@@ -138,7 +197,7 @@ function turtle_game() {
 
   //rect over middle box
   rect(375,75, 50, 275);
-
+  
   // upper L to the left of pillar
   push();
   noStroke();
@@ -151,7 +210,7 @@ function turtle_game() {
   line(275, 350, 275, 125);
   line(275, 125, 75, 125);
   line(75, 125, 75, 75);
-
+  
   // upper L to the right of pillar
   push();
   noStroke();
@@ -164,19 +223,19 @@ function turtle_game() {
   line(525, 125, 525, 350);
   line(525, 350, 475, 350);
   line(475, 350, 475, 75);
-
+  
   // upper left and right box
   rect(75, 175, 150, 175);
-  rect(575, 175, 150, 175);
-
+  rect(575, 175, 150, 175)
+  
   //Left and right line
   rect(75, 400, 200, 50);
   rect(525, 400, 200, 50);
-
+  
   // lower left and right box
   rect(75, 500, 150, 125);
   rect(575, 500, 150, 125);
-
+  
   // lower L to the left of pillar
   push();
   noStroke();
@@ -189,7 +248,7 @@ function turtle_game() {
   line(275, 500, 275, 675);
   line(275, 675, 75, 675);
   line (75, 675, 75, 725);
-
+  
   // upper L to the right of pillar
   push();
   noStroke();
@@ -202,7 +261,7 @@ function turtle_game() {
   line(525, 675, 525, 500);
   line(525, 500, 475, 500);
   line(475, 500, 475, 725);
-
+  
   //rect under middle box
   rect(375,500, 50, 225);
 
@@ -210,7 +269,7 @@ function turtle_game() {
   var wPosT = Tur.width;
   var hPosT = Tur.height;
   //Turtle
-
+push();
   translate(xPosT+8+17,yPosT+17)
   if (move==2){
       rotate(180);
@@ -219,9 +278,11 @@ function turtle_game() {
     } else if (move == 4){
     rotate(90)
   }
-
+  
   image(Tur, -17 ,-17, wPosT/5, hPosT/5);
+  pop();
 }
+
 function turtle_hit_wall() {
 //Rect under box
   if (xPosT+8 > 380 && xPosT+8 < 425 && yPosT < 725 && yPosT > 480 || xPosT+8+34 > 380 && xPosT+8+34 < 425 && yPosT < 725 && yPosT > 480) {
@@ -253,7 +314,7 @@ function turtle_hit_wall() {
     yPosT -= 2;
     xPosT -= 2;
   }
-
+  
   //right line
   if (xPosT+8 > 530 && xPosT+8 < 760 && yPosT < 380 && yPosT > 450 || xPosT+8+34 > 530 && xPosT+8+34 < 760 && yPosT > 380 && yPosT < 450) {
     move = 0;
@@ -264,7 +325,7 @@ function turtle_hit_wall() {
     yPosT -= 2;
     xPosT -= 2;
   }
-
+  
     //box
   if (xPosT+8 > 350 && xPosT+8 < 485 && yPosT < 380 && yPosT > 450 || xPosT+8+34 > 350 && xPosT+8+34 < 485 && yPosT > 380 && yPosT < 450) {
     move = 0;
@@ -447,43 +508,20 @@ function turtle_hit_wall() {
     yPosT = yPosT-800
     }
 }
+
 function turtle_move() {
    if (move==1){
-      yPosT -= 2
+      yPosT -= 2+f/5
     } else if (move==2){
-      yPosT += 2
+      yPosT += 2+f/5
     }
   if (move == 3){
-    xPosT -= 2
+    xPosT -= 2+f/5
   } else if (move == 4){
-    xPosT += 2
+    xPosT += 2+f/5
   }
 }
-function straws() {
-  //straws Kordinater
-  var wPosS = stw.width;
-  var hPosS = stw.height;
-  //Turtle
-
-  translate(xPosS+8+17,yPosS+17)
-  if (moveS==2){
-      rotate(180);
-    } else if (moveS==3){
-      rotate(270);
-    } else if (moveS== 4){
-    rotate(90)
-  }
-
-  image(stw, 0 ,0, wPosS/5, hPosT/5);
-}
-
-function draw() {
-  baggrund();
-  turtle_game();
-  turtle_move();
-  turtle_hit_wall();
-}
-function keyPressed() {
+  function keyPressed() {
     if (keyCode === UP_ARROW) {
       move = 1;
     } else if (keyCode === DOWN_ARROW) {
@@ -494,8 +532,1469 @@ function keyPressed() {
     } else if (keyCode === RIGHT_ARROW) {
       move = 4;
     }
-
+         
 }
+
+function straws() {
+  //straws Kordinater
+  var wPosS = stw.width;
+  var hPosS = stw.height;
+  //straw
+  push();
+  tint(0, 153, 204)
+  image(stw, xPosS ,yPosS, wPosS/5, hPosS/10);
+  pop();
+      if (Smove == 0){
+    Smove = random(4);
+  }
+   if (Smove<1&&Smove>0){
+      yPosS -= 4;
+    } else if (Smove<2&&Smove>1){
+      yPosS += 4;
+    } if (Smove<3&&Smove>2){
+    xPosS -= 4;
+  } else if (Smove<4&&Smove>3){
+    xPosS += 4;
+}  
+}
+
+function straw_hit_wall() {
+//hidden walls
+  if (xPosS > 249 && xPosS < 251 && yPosS > 330 && yPosS < 400 || xPosS+34 > 249 && xPosS+34 < 251 && yPosS > 330 && yPosS < 400) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 349 && xPosS < 351 && yPosS > 330 && yPosS < 400 || xPosS+34 > 349 && xPosS+34 < 351 && yPosS > 330 && yPosS < 400) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 449 && xPosS < 451 && yPosS > 330 && yPosS < 400 || xPosS+34 > 449 && xPosS+34 < 451 && yPosS > 330 && yPosS < 400) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 549 && xPosS < 551 && yPosS > 330 && yPosS < 400 || xPosS+34 > 549 && xPosS+34 < 551 && yPosS > 330 && yPosS < 400) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 249 && xPosS < 251 && yPosS > 430 && yPosS < 500 || xPosS+34 > 249 && xPosS+34 < 251 && yPosS > 430 && yPosS < 500) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 349 && xPosS < 351 && yPosS > 430 && yPosS < 500 || xPosS+34 > 349 && xPosS+34 < 351 && yPosS > 430 && yPosS < 500) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 449 && xPosS < 451 && yPosS > 430 && yPosS < 500 || xPosS+34 > 449 && xPosS+34 < 451 && yPosS > 430 && yPosS < 500) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 549 && xPosS < 551 && yPosS > 430 && yPosS < 500 || xPosS+34 > 549 && xPosS+34 < 551 && yPosS > 430 && yPosS < 500) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 299 && xPosS < 301 && yPosS > 430 && yPosS < 500 || xPosS+34 > 299 && xPosS+34 < 301 && yPosS > 430 && yPosS < 500) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 499 && xPosS < 501 && yPosS > 330 && yPosS < 400 || xPosS+34 > 499 && xPosS+34 < 501 && yPosS > 330 && yPosS < 400) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 299 && xPosS < 301 && yPosS > 330 && yPosS < 400 || xPosS+34 > 299 && xPosS+34 < 301 && yPosS > 330 && yPosS < 400) {
+    Smove = 0;
+    xPosS -= 2;
+  } if (xPosS > 499 && xPosS < 501 && yPosS > 430 && yPosS < 500 || xPosS+34 > 499 && xPosS+34 < 501 && yPosS > 430 && yPosS < 500) {
+    Smove = 0;
+    xPosS -= 2;
+  }
+  if (xPosS > 420 && xPosS < 425 && yPosS > 0 && yPosS < 75 || xPosS+34 > 420 && xPosS+34 < 425 && yPosS > 0 && yPosS < 75) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 375 && xPosS < 380 && yPosS > 725 && yPosS < 800 || xPosS+34 > 375 && xPosS+34 < 380 && yPosS > 725 && yPosS < 800) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 0 && xPosS < 90 && yPosS > 400 && yPosS < 410 || xPosS+34 > 0 && xPosS+34 < 90 && yPosS > 400 && yPosS < 410) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 700 && xPosS < 800 && yPosS > 440 && yPosS < 450 || xPosS+34 > 700 && xPosS+34 < 800 && yPosS > 440 && yPosS < 450) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  }
+//Rect under box
+  if (xPosS > 380 && xPosS < 425 && yPosS < 725 && yPosS > 480 || xPosS+34 > 380 && xPosS+34 < 425 && yPosS < 725 && yPosS > 480) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 375 && xPosS < 425 && yPosS < 725 && yPosS > 475 || xPosS+34 > 375 && xPosS+34 < 425 && yPosS < 725 && yPosS > 475) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+//Rect over box
+  if (xPosS > 380 && xPosS < 425 && yPosS < 350 && yPosS > 55 || xPosS+34 > 380 && xPosS+34 < 425 && yPosS < 350 && yPosS > 55) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  }if (xPosS > 375 && xPosS < 425 && yPosS < 345 && yPosS > 45 || xPosS+34 > 375 && xPosS+34 < 425 && yPosS < 345 && yPosS > 45) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+//Left line
+  if (xPosS > 80 && xPosS < 310 && yPosS < 380 && yPosS > 450 || xPosS+34 > 80 && xPosS+34 < 310 && yPosS > 380 && yPosS < 450) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 75 && xPosS < 300 && yPosS < 370 && yPosS > 445 || xPosS+34 > 75 &&       xPosS+34 < 300 && yPosS > 370 && yPosS < 445) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  
+  //right line
+  if (xPosS > 530 && xPosS < 760 && yPosS < 380 && yPosS > 450 || xPosS+34 > 530 && xPosS+34 < 760 && yPosS > 380 && yPosS < 450) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 525 && xPosS < 750 && yPosS < 370 && yPosS > 445 || xPosS+34 > 525 &&       xPosS+34 < 750 && yPosS > 370 && yPosS < 445) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  
+    //box
+  if (xPosS > 350 && xPosS < 485 && yPosS < 380 && yPosS > 450 || xPosS+34 > 350 && xPosS+34 < 485 && yPosS > 380 && yPosS < 450) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 345 && xPosS < 485 && yPosS < 370 && yPosS > 445 || xPosS+34 > 345 &&       xPosS+34 < 485 && yPosS > 370 && yPosS < 445) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  //Left lower L
+  if (xPosS > 280 && xPosS < 325 && yPosS < 725 && yPosS > 480 || xPosS+34 > 280 && xPosS+34 < 325 && yPosS < 725 && yPosS > 480) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 275 && xPosS < 325 && yPosS < 725 && yPosS > 475 || xPosS+34 > 275 && xPosS+34 < 325 && yPosS < 725 && yPosS > 475) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  } if (xPosS > 80 && xPosS < 310 && yPosS < 655 && yPosS > 725 || xPosS+34 > 80 && xPosS+34 < 310 && yPosS > 655 && yPosS < 725) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 75 && xPosS < 300 && yPosS < 645 && yPosS > 720 || xPosS+34 > 75 &&       xPosS+34 < 300 && yPosS > 645 && yPosS < 720) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  //lower right L
+  if (xPosS > 480 && xPosS < 525 && yPosS < 725 && yPosS > 480 || xPosS+34 > 480 && xPosS+34 < 525 && yPosS < 725 && yPosS > 480) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 475 && xPosS < 525 && yPosS < 725 && yPosS > 475 || xPosS+34 > 475 && xPosS+34 < 525 && yPosS < 725 && yPosS > 475) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  } if (xPosS > 530 && xPosS < 760 && yPosS < 655 && yPosS > 725 || xPosS+34 > 530 && xPosS+34 < 760 && yPosS > 655 && yPosS < 725) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 525 && xPosS < 750 && yPosS < 645 && yPosS > 720 || xPosS+34 > 525 &&       xPosS+34 < 750 && yPosS > 645 && yPosS < 720) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS += 2;
+  }
+    //Left upper L
+  if (xPosS > 280 && xPosS < 325 && yPosS < 350 && yPosS > 55 || xPosS+34 > 280 && xPosS+34 < 325 && yPosS < 350 && yPosS > 55) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  }if (xPosS > 275 && xPosS < 325 && yPosS < 345 && yPosS > 45 || xPosS+34 > 275 && xPosS+34 < 325 && yPosS < 345 && yPosS > 45) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  } if (xPosS > 80 && xPosS < 310 && yPosS < 50 && yPosS > 125 || xPosS+34 > 80 && xPosS+34 < 310 && yPosS > 50 && yPosS < 125) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS -= 2;
+  } if (xPosS > 75 && xPosS < 300 && yPosS < 40 && yPosS > 120 || xPosS+34 > 75 &&       xPosS+34 < 300 && yPosS > 40 && yPosS < 120) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+      //Right upper L
+  if (xPosS > 480 && xPosS < 525 && yPosS < 350 && yPosS > 55 || xPosS+34 > 480 && xPosS+34 < 525 && yPosS < 350 && yPosS > 55) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  }if (xPosS > 475 && xPosS < 525 && yPosS < 345 && yPosS > 45 || xPosS+34 > 475 && xPosS+34 < 525 && yPosS < 345 && yPosS > 45) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  } if (xPosS > 530 && xPosS < 760 && yPosS < 50 && yPosS > 125 || xPosS+34 > 530 && xPosS+34 < 760 && yPosS > 50 && yPosS < 125) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 525 && xPosS < 750 && yPosS < 40 && yPosS > 120 || xPosS+34 > 525 &&       xPosS+34 < 750 && yPosS > 40 && yPosS < 120) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  //left upper rect
+  if (xPosS > 80 && xPosS < 260 && yPosS < 145 && yPosS > 355 || xPosS+34 > 80 && xPosS+34 < 260 && yPosS > 145 && yPosS < 355) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 75 && xPosS < 250 && yPosS < 140 && yPosS > 350 || xPosS+34 > 75 &&       xPosS+34 < 250 && yPosS > 140 && yPosS < 350) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+    //right upper rect
+  if (xPosS > 580 && xPosS < 760 && yPosS < 145 && yPosS > 355 || xPosS+34 > 580 && xPosS+34 < 760 && yPosS > 145 && yPosS < 355) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 575 && xPosS < 750 && yPosS < 140 && yPosS > 350 || xPosS+34 > 575 &&       xPosS+34 < 750 && yPosS > 140 && yPosS < 350) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+    //left lower rect
+  if (xPosS > 80 && xPosS < 225 && yPosS < 625 && yPosS > 480 || xPosS+34 > 80 && xPosS+34 < 225 && yPosS < 625 && yPosS > 480) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 75 && xPosS < 220 && yPosS < 620 && yPosS > 475 || xPosS+34 > 75 &&       xPosS+34 < 220 && yPosS < 620 && yPosS > 475) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  //right lower rect
+  if (xPosS > 580 && xPosS < 726 && yPosS < 625 && yPosS > 480 || xPosS+34 > 580 && xPosS+34 < 726 && yPosS < 625 && yPosS > 480) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+  } if (xPosS > 575 && xPosS < 720 && yPosS < 620 && yPosS > 475 || xPosS+34 > 575 &&       xPosS+34 < 720 && yPosS < 620 && yPosS > 475) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+  }
+  //walls
+  //left upper poal
+    if (xPosS > -10 && xPosS < 25 && yPosS > -10 && yPosS < 400 || xPosS+34 > 0 && xPosS+34 < 25 && yPosS > 0 && yPosS < 400) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+    }
+  //Right upper poal
+    if (xPosS > 775 && xPosS < 810 && yPosS > 0 && yPosS < 400 || xPosS+34 > 775 && xPosS+34 < 810 && yPosS > 0 && yPosS < 400) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS -= 2;
+    }
+    //left lower poal
+    if (xPosS > -10 && xPosS < 25 && yPosS > 420 && yPosS < 800 || xPosS+34 > -10 && xPosS+34 < 25 && yPosS > 420 && yPosS < 800) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS += 2;
+    }
+  //Right lower poal
+    if (xPosS > 775 && xPosS < 810 && yPosS > 420 && yPosS < 800 || xPosS+34 > 775 && xPosS+34 < 810 && yPosS > 420 && yPosS < 800) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+    }
+    //Left upper stick
+    if (xPosS > 0 && xPosS < 375 && yPosS > -20 && yPosS < 25 || xPosS+34 > 0 && xPosS+34 < 375 && yPosS > -20 && yPosS < 25) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS += 2;
+    }
+    //Right upper stick
+    if (xPosS > 425 && xPosS < 800 && yPosS > -20 && yPosS < 25 || xPosS+34 > 425 && xPosS+34 < 800 && yPosS > -20 && yPosS < 25) {
+    Smove = 0;
+    yPosS += 2;
+    xPosS -= 2;
+    }
+    //Left upper stick
+    if (xPosS > 0 && xPosS < 375 && yPosS > 745 && yPosS < 820 || xPosS+34 > 0 && xPosS+34 < 375 && yPosS > 745 && yPosS < 820) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS += 2;
+    }
+    //Right upper stick
+    if (xPosS > 425 && xPosS < 800 && yPosS > 745 && yPosS < 820 || xPosS+34 > 425 && xPosS+34 < 800 && yPosS > 745 && yPosS < 820) {
+    Smove = 0;
+    yPosS -= 2;
+    xPosS -= 2;
+    }
+    //Teleports
+    if (xPosS < 0 || xPosS+34 < 0) {
+    xPosS = xPosS+800
+    } if (xPosS > 800 || xPosS+34 > 800) {
+    xPosS = xPosS-800
+    } if (yPosS+8 < 0 || xPosS+34 < 0) {
+    yPosS = yPosS+800
+    } if (yPosS+8 > 800 || xPosS+34 > 800) {
+    yPosS = yPosS-800
+    }
+}
+
+function straws2() {
+  //straws Kordinater
+  var wPosS2 = stw.width;
+  var hPosS2 = stw.height;
+  //straw
+  push();
+  tint(0, 200, 100)
+  image(stw, xPosS2 ,yPosS2, wPosS2/5, hPosS2/10);
+  pop();
+      if (Smove2 == 0){
+    Smove2 = random(4);
+  }
+   if (Smove2<1&&Smove2>0){
+      yPosS2 -= 4;
+    } else if (Smove2<2&&Smove2>1){
+      yPosS2 += 4;
+    } if (Smove2<3&&Smove2>2){
+    xPosS2 -= 4;
+  } else if (Smove2<4&&Smove2>3){
+    xPosS2 += 4;
+}  
+}
+
+function straw_hit_wall2() {
+//hidden walls
+  if (xPosS2 > 249 && xPosS2 < 251 && yPosS2 > 330 && yPosS2 < 400 || xPosS2+34 > 249 && xPosS2+34 < 251 && yPosS2 > 330 && yPosS2 < 400) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 349 && xPosS2 < 351 && yPosS2 > 330 && yPosS2 < 400 || xPosS2+34 > 349 && xPosS2+34 < 351 && yPosS2 > 330 && yPosS2 < 400) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 449 && xPosS2 < 451 && yPosS2 > 330 && yPosS2 < 400 || xPosS2+34 > 449 && xPosS2+34 < 451 && yPosS2 > 330 && yPosS2 < 400) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 549 && xPosS2 < 551 && yPosS2 > 330 && yPosS2 < 400 || xPosS2+34 > 549 && xPosS2+34 < 551 && yPosS2 > 330 && yPosS2 < 400) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 249 && xPosS2 < 251 && yPosS2 > 430 && yPosS2 < 500 || xPosS2+34 > 249 && xPosS2+34 < 251 && yPosS2 > 430 && yPosS2 < 500) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 349 && xPosS2 < 351 && yPosS2 > 430 && yPosS2 < 500 || xPosS2+34 > 349 && xPosS2+34 < 351 && yPosS2 > 430 && yPosS2 < 500) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 449 && xPosS2 < 451 && yPosS2 > 430 && yPosS2 < 500 || xPosS2+34 > 449 && xPosS2+34 < 451 && yPosS2 > 430 && yPosS2 < 500) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 549 && xPosS2 < 551 && yPosS2 > 430 && yPosS2 < 500 || xPosS2+34 > 549 && xPosS2+34 < 551 && yPosS2 > 430 && yPosS2 < 500) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 299 && xPosS2 < 301 && yPosS2 > 430 && yPosS2 < 500 || xPosS2+34 > 299 && xPosS2+34 < 301 && yPosS2 > 430 && yPosS2 < 500) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 499 && xPosS2 < 501 && yPosS2 > 330 && yPosS2 < 400 || xPosS2+34 > 499 && xPosS2+34 < 501 && yPosS2 > 330 && yPosS2 < 400) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 299 && xPosS2 < 301 && yPosS2 > 330 && yPosS2 < 400 || xPosS2+34 > 299 && xPosS2+34 < 301 && yPosS2 > 330 && yPosS2 < 400) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  } if (xPosS2 > 499 && xPosS2 < 501 && yPosS2 > 430 && yPosS2 < 500 || xPosS2+34 > 499 && xPosS2+34 < 501 && yPosS2 > 430 && yPosS2 < 500) {
+    Smove2 = 0;
+    xPosS2 -= 2;
+  }
+  if (xPosS2 > 420 && xPosS2 < 425 && yPosS2 > 0 && yPosS2 < 75 || xPosS2+34 > 420 && xPosS2+34 < 425 && yPosS2 > 0 && yPosS2 < 75) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 375 && xPosS2 < 380 && yPosS2 > 725 && yPosS2 < 800 || xPosS2+34 > 375 && xPosS2+34 < 380 && yPosS2 > 725 && yPosS2 < 800) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 0 && xPosS2 < 90 && yPosS2 > 400 && yPosS2 < 410 || xPosS2+34 > 0 && xPosS2+34 < 90 && yPosS2 > 400 && yPosS2 < 410) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 700 && xPosS2 < 800 && yPosS2 > 440 && yPosS2 < 450 || xPosS2+34 > 700 && xPosS2+34 < 800 && yPosS2 > 440 && yPosS2 < 450) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  }
+//Rect under box
+  if (xPosS2 > 380 && xPosS2 < 425 && yPosS2 < 725 && yPosS2 > 480 || xPosS2+34 > 380 && xPosS2+34 < 425 && yPosS2 < 725 && yPosS2 > 480) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 375 && xPosS2 < 425 && yPosS2 < 725 && yPosS2 > 475 || xPosS2+34 > 375 && xPosS2+34 < 425 && yPosS2 < 725 && yPosS2 > 475) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+//Rect over box
+  if (xPosS2 > 380 && xPosS2 < 425 && yPosS2 < 350 && yPosS2 > 55 || xPosS2+34 > 380 && xPosS2+34 < 425 && yPosS2 < 350 && yPosS2 > 55) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  }if (xPosS2 > 375 && xPosS2 < 425 && yPosS2 < 345 && yPosS2 > 45 || xPosS2+34 > 375 && xPosS2+34 < 425 && yPosS2 < 345 && yPosS2 > 45) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+//Left line
+  if (xPosS2 > 80 && xPosS2 < 310 && yPosS2 < 380 && yPosS2 > 450 || xPosS2+34 > 80 && xPosS2+34 < 310 && yPosS2 > 380 && yPosS2 < 450) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 75 && xPosS2 < 300 && yPosS2 < 370 && yPosS2 > 445 || xPosS2+34 > 75 &&       xPosS2+34 < 300 && yPosS2 > 370 && yPosS2 < 445) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  
+  //right line
+  if (xPosS2 > 530 && xPosS2 < 760 && yPosS2 < 380 && yPosS2 > 450 || xPosS2+34 > 530 && xPosS2+34 < 760 && yPosS2 > 380 && yPosS2 < 450) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 525 && xPosS2 < 750 && yPosS2 < 370 && yPosS2 > 445 || xPosS2+34 > 525 &&       xPosS2+34 < 750 && yPosS2 > 370 && yPosS2 < 445) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  
+    //box
+  if (xPosS2 > 350 && xPosS2 < 485 && yPosS2 < 380 && yPosS2 > 450 || xPosS2+34 > 350 && xPosS2+34 < 485 && yPosS2 > 380 && yPosS2 < 450) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 345 && xPosS2 < 485 && yPosS2 < 370 && yPosS2 > 445 || xPosS2+34 > 345 &&       xPosS2+34 < 485 && yPosS2 > 370 && yPosS2 < 445) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  //Left lower L
+  if (xPosS2 > 280 && xPosS2 < 325 && yPosS2 < 725 && yPosS2 > 480 || xPosS2+34 > 280 && xPosS2+34 < 325 && yPosS2 < 725 && yPosS2 > 480) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 275 && xPosS2 < 325 && yPosS2 < 725 && yPosS2 > 475 || xPosS2+34 > 275 && xPosS2+34 < 325 && yPosS2 < 725 && yPosS2 > 475) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  } if (xPosS2 > 80 && xPosS2 < 310 && yPosS2 < 655 && yPosS2 > 725 || xPosS2+34 > 80 && xPosS2+34 < 310 && yPosS2 > 655 && yPosS2 < 725) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 75 && xPosS2 < 300 && yPosS2 < 645 && yPosS2 > 720 || xPosS2+34 > 75 &&       xPosS2+34 < 300 && yPosS2 > 645 && yPosS2 < 720) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  //lower right L
+  if (xPosS2 > 480 && xPosS2 < 525 && yPosS2 < 725 && yPosS2 > 480 || xPosS2+34 > 480 && xPosS2+34 < 525 && yPosS2 < 725 && yPosS2 > 480) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 475 && xPosS2 < 525 && yPosS2 < 725 && yPosS2 > 475 || xPosS2+34 > 475 && xPosS2+34 < 525 && yPosS2 < 725 && yPosS2 > 475) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  } if (xPosS2 > 530 && xPosS2 < 760 && yPosS2 < 655 && yPosS2 > 725 || xPosS2+34 > 530 && xPosS2+34 < 760 && yPosS2 > 655 && yPosS2 < 725) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 525 && xPosS2 < 750 && yPosS2 < 645 && yPosS2 > 720 || xPosS2+34 > 525 &&       xPosS2+34 < 750 && yPosS2 > 645 && yPosS2 < 720) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 += 2;
+  }
+    //Left upper L
+  if (xPosS2 > 280 && xPosS2 < 325 && yPosS2 < 350 && yPosS2 > 55 || xPosS2+34 > 280 && xPosS2+34 < 325 && yPosS2 < 350 && yPosS2 > 55) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  }if (xPosS2 > 275 && xPosS2 < 325 && yPosS2 < 345 && yPosS2 > 45 || xPosS2+34 > 275 && xPosS2+34 < 325 && yPosS2 < 345 && yPosS2 > 45) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  } if (xPosS2 > 80 && xPosS2 < 310 && yPosS2 < 50 && yPosS2 > 125 || xPosS2+34 > 80 && xPosS2+34 < 310 && yPosS2 > 50 && yPosS2 < 125) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 -= 2;
+  } if (xPosS2 > 75 && xPosS2 < 300 && yPosS2 < 40 && yPosS2 > 120 || xPosS2+34 > 75 &&       xPosS2+34 < 300 && yPosS2 > 40 && yPosS2 < 120) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+      //Right upper L
+  if (xPosS2 > 480 && xPosS2 < 525 && yPosS2 < 350 && yPosS2 > 55 || xPosS2+34 > 480 && xPosS2+34 < 525 && yPosS2 < 350 && yPosS2 > 55) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  }if (xPosS2 > 475 && xPosS2 < 525 && yPosS2 < 345 && yPosS2 > 45 || xPosS2+34 > 475 && xPosS2+34 < 525 && yPosS2 < 345 && yPosS2 > 45) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  } if (xPosS2 > 530 && xPosS2 < 760 && yPosS2 < 50 && yPosS2 > 125 || xPosS2+34 > 530 && xPosS2+34 < 760 && yPosS2 > 50 && yPosS2 < 125) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 525 && xPosS2 < 750 && yPosS2 < 40 && yPosS2 > 120 || xPosS2+34 > 525 &&       xPosS2+34 < 750 && yPosS2 > 40 && yPosS2 < 120) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  //left upper rect
+  if (xPosS2 > 80 && xPosS2 < 260 && yPosS2 < 145 && yPosS2 > 355 || xPosS2+34 > 80 && xPosS2+34 < 260 && yPosS2 > 145 && yPosS2 < 355) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 75 && xPosS2 < 250 && yPosS2 < 140 && yPosS2 > 350 || xPosS2+34 > 75 &&       xPosS2+34 < 250 && yPosS2 > 140 && yPosS2 < 350) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+    //right upper rect
+  if (xPosS2 > 580 && xPosS2 < 760 && yPosS2 < 145 && yPosS2 > 355 || xPosS2+34 > 580 && xPosS2+34 < 760 && yPosS2 > 145 && yPosS2 < 355) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 575 && xPosS2 < 750 && yPosS2 < 140 && yPosS2 > 350 || xPosS2+34 > 575 &&       xPosS2+34 < 750 && yPosS2 > 140 && yPosS2 < 350) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+    //left lower rect
+  if (xPosS2 > 80 && xPosS2 < 225 && yPosS2 < 625 && yPosS2 > 480 || xPosS2+34 > 80 && xPosS2+34 < 225 && yPosS2 < 625 && yPosS2 > 480) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 75 && xPosS2 < 220 && yPosS2 < 620 && yPosS2 > 475 || xPosS2+34 > 75 &&       xPosS2+34 < 220 && yPosS2 < 620 && yPosS2 > 475) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  //right lower rect
+  if (xPosS2 > 580 && xPosS2 < 726 && yPosS2 < 625 && yPosS2 > 480 || xPosS2+34 > 580 && xPosS2+34 < 726 && yPosS2 < 625 && yPosS2 > 480) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+  } if (xPosS2 > 575 && xPosS2 < 720 && yPosS2 < 620 && yPosS2 > 475 || xPosS2+34 > 575 &&       xPosS2+34 < 720 && yPosS2 < 620 && yPosS2 > 475) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+  }
+  //walls
+  //left upper poal
+    if (xPosS2 > -10 && xPosS2 < 25 && yPosS2 > -10 && yPosS2 < 400 || xPosS2+34 > 0 && xPosS2+34 < 25 && yPosS2 > 0 && yPosS2 < 400) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+    }
+  //Right upper poal
+    if (xPosS2 > 775 && xPosS2 < 810 && yPosS2 > 0 && yPosS2 < 400 || xPosS2+34 > 775 && xPosS2+34 < 810 && yPosS2 > 0 && yPosS2 < 400) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 -= 2;
+    }
+    //left lower poal
+    if (xPosS2 > -10 && xPosS2 < 25 && yPosS2 > 420 && yPosS2 < 800 || xPosS2+34 > -10 && xPosS2+34 < 25 && yPosS2 > 420 && yPosS2 < 800) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 += 2;
+    }
+  //Right lower poal
+    if (xPosS2 > 775 && xPosS2 < 810 && yPosS2 > 420 && yPosS2 < 800 || xPosS2+34 > 775 && xPosS2+34 < 810 && yPosS2 > 420 && yPosS2 < 800) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+    }
+    //Left upper stick
+    if (xPosS2 > 0 && xPosS2 < 375 && yPosS2 > -20 && yPosS2 < 25 || xPosS2+34 > 0 && xPosS2+34 < 375 && yPosS2 > -20 && yPosS2 < 25) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 += 2;
+    }
+    //Right upper stick
+    if (xPosS2 > 425 && xPosS2 < 800 && yPosS2 > -20 && yPosS2 < 25 || xPosS2+34 > 425 && xPosS2+34 < 800 && yPosS2 > -20 && yPosS2 < 25) {
+    Smove2 = 0;
+    yPosS2 += 2;
+    xPosS2 -= 2;
+    }
+    //Left upper stick
+    if (xPosS2 > 0 && xPosS2 < 375 && yPosS2 > 745 && yPosS2 < 820 || xPosS2+34 > 0 && xPosS2+34 < 375 && yPosS2 > 745 && yPosS2 < 820) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 += 2;
+    }
+    //Right upper stick
+    if (xPosS2 > 425 && xPosS2 < 800 && yPosS2 > 745 && yPosS2 < 820 || xPosS2+34 > 425 && xPosS2+34 < 800 && yPosS2 > 745 && yPosS2 < 820) {
+    Smove2 = 0;
+    yPosS2 -= 2;
+    xPosS2 -= 2;
+    }
+    //Teleports
+    if (xPosS2 < 0 || xPosS2+34 < 0) {
+    xPosS2 = xPosS2+800
+    } if (xPosS2 > 800 || xPosS2+34 > 800) {
+    xPosS2 = xPosS2-800
+    } if (yPosS2+8 < 0 || xPosS2+34 < 0) {
+    yPosS2 = yPosS2+800
+    } if (yPosS2+8 > 800 || xPosS2+34 > 800) {
+    yPosS2 = yPosS2-800
+    }
+}
+
+function straws3() {
+  //straws Kordinater
+  var wPosS2 = fish.width;
+  var hPosS2 = fish.height;
+  //straw
+  push();
+  image(fish, xPosS3 ,yPosS3, wPosS2/4, hPosS2/4);
+  pop();
+      if (Smove3 == 0){
+    Smove3 = random(4);
+  }
+   if (Smove3<1&&Smove3>0){
+      yPosS3 -= 4;
+    } else if (Smove3<2&&Smove3>1){
+      yPosS3 += 4;
+    } if (Smove3<3&&Smove3>2){
+    xPosS3 -= 4;
+  } else if (Smove3<4&&Smove3>3){
+    xPosS3 += 4;
+}  
+}
+
+function straw_hit_wall3() {
+//hidden walls
+  if (xPosS3 > 299 && xPosS3 < 301 && yPosS3 > 430 && yPosS3 < 500 || xPosS3+34 > 299 && xPosS3+34 < 301 && yPosS3 > 430 && yPosS3 < 500) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 499 && xPosS3 < 501 && yPosS3 > 330 && yPosS3 < 400 || xPosS3+34 > 499 && xPosS3+34 < 501 && yPosS3 > 330 && yPosS3 < 400) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 299 && xPosS3 < 301 && yPosS3 > 330 && yPosS3 < 400 || xPosS3+34 > 299 && xPosS3+34 < 301 && yPosS3 > 330 && yPosS3 < 400) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 499 && xPosS3 < 501 && yPosS3 > 430 && yPosS3 < 500 || xPosS3+34 > 499 && xPosS3+34 < 501 && yPosS3 > 430 && yPosS3 < 500) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  }
+
+  if (xPosS3 > 249 && xPosS3 < 251 && yPosS3 > 330 && yPosS3 < 400 || xPosS3+34 > 249 && xPosS3+34 < 251 && yPosS3 > 330 && yPosS3 < 400) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 349 && xPosS3 < 351 && yPosS3 > 330 && yPosS3 < 400 || xPosS3+34 > 349 && xPosS3+34 < 351 && yPosS3 > 330 && yPosS3 < 400) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 449 && xPosS3 < 451 && yPosS3 > 330 && yPosS3 < 400 || xPosS3+34 > 449 && xPosS3+34 < 451 && yPosS3 > 330 && yPosS3 < 400) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 549 && xPosS3 < 551 && yPosS3 > 330 && yPosS3 < 400 || xPosS3+34 > 549 && xPosS3+34 < 551 && yPosS3 > 330 && yPosS3 < 400) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 249 && xPosS3 < 251 && yPosS3 > 430 && yPosS3 < 500 || xPosS3+34 > 249 && xPosS3+34 < 251 && yPosS3 > 430 && yPosS3 < 500) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 349 && xPosS3 < 351 && yPosS3 > 430 && yPosS3 < 500 || xPosS3+34 > 349 && xPosS3+34 < 351 && yPosS3 > 430 && yPosS3 < 500) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 449 && xPosS3 < 451 && yPosS3 > 430 && yPosS3 < 500 || xPosS3+34 > 449 && xPosS3+34 < 451 && yPosS3 > 430 && yPosS3 < 500) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  } if (xPosS3 > 549 && xPosS3 < 551 && yPosS3 > 430 && yPosS3 < 500 || xPosS3+34 > 549 && xPosS3+34 < 551 && yPosS3 > 430 && yPosS3 < 500) {
+    Smove3 = 0;
+    xPosS3 -= 2;
+  }
+  if (xPosS3 > 420 && xPosS3 < 425 && yPosS3 > 0 && yPosS3 < 75 || xPosS3+34 > 420 && xPosS3+34 < 425 && yPosS3 > 0 && yPosS3 < 75) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 375 && xPosS3 < 380 && yPosS3 > 725 && yPosS3 < 800 || xPosS3+34 > 375 && xPosS3+34 < 380 && yPosS3 > 725 && yPosS3 < 800) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 0 && xPosS3 < 90 && yPosS3 > 400 && yPosS3 < 410 || xPosS3+34 > 0 && xPosS3+34 < 90 && yPosS3 > 400 && yPosS3 < 410) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 700 && xPosS3 < 800 && yPosS3 > 440 && yPosS3 < 450 || xPosS3+34 > 700 && xPosS3+34 < 800 && yPosS3 > 440 && yPosS3 < 450) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  }
+//Rect under box
+  if (xPosS3 > 380 && xPosS3 < 425 && yPosS3 < 725 && yPosS3 > 480 || xPosS3+34 > 380 && xPosS3+34 < 425 && yPosS3 < 725 && yPosS3 > 480) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 375 && xPosS3 < 425 && yPosS3 < 725 && yPosS3 > 475 || xPosS3+34 > 375 && xPosS3+34 < 425 && yPosS3 < 725 && yPosS3 > 475) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+//Rect over box
+  if (xPosS3 > 380 && xPosS3 < 425 && yPosS3 < 350 && yPosS3 > 55 || xPosS3+34 > 380 && xPosS3+34 < 425 && yPosS3 < 350 && yPosS3 > 55) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  }if (xPosS3 > 375 && xPosS3 < 425 && yPosS3 < 345 && yPosS3 > 45 || xPosS3+34 > 375 && xPosS3+34 < 425 && yPosS3 < 345 && yPosS3 > 45) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+//Left line
+  if (xPosS3 > 80 && xPosS3 < 310 && yPosS3 < 380 && yPosS3 > 450 || xPosS3+34 > 80 && xPosS3+34 < 310 && yPosS3 > 380 && yPosS3 < 450) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 75 && xPosS3 < 300 && yPosS3 < 370 && yPosS3 > 445 || xPosS3+34 > 75 &&       xPosS3+34 < 300 && yPosS3 > 370 && yPosS3 < 445) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  
+  //right line
+  if (xPosS3 > 530 && xPosS3 < 760 && yPosS3 < 380 && yPosS3 > 450 || xPosS3+34 > 530 && xPosS3+34 < 760 && yPosS3 > 380 && yPosS3 < 450) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 525 && xPosS3 < 750 && yPosS3 < 370 && yPosS3 > 445 || xPosS3+34 > 525 &&       xPosS3+34 < 750 && yPosS3 > 370 && yPosS3 < 445) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  
+    //box
+  if (xPosS3 > 350 && xPosS3 < 485 && yPosS3 < 380 && yPosS3 > 450 || xPosS3+34 > 350 && xPosS3+34 < 485 && yPosS3 > 380 && yPosS3 < 450) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 345 && xPosS3 < 485 && yPosS3 < 370 && yPosS3 > 445 || xPosS3+34 > 345 &&       xPosS3+34 < 485 && yPosS3 > 370 && yPosS3 < 445) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  //Left lower L
+  if (xPosS3 > 280 && xPosS3 < 325 && yPosS3 < 725 && yPosS3 > 480 || xPosS3+34 > 280 && xPosS3+34 < 325 && yPosS3 < 725 && yPosS3 > 480) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 275 && xPosS3 < 325 && yPosS3 < 725 && yPosS3 > 475 || xPosS3+34 > 275 && xPosS3+34 < 325 && yPosS3 < 725 && yPosS3 > 475) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  } if (xPosS3 > 80 && xPosS3 < 310 && yPosS3 < 655 && yPosS3 > 725 || xPosS3+34 > 80 && xPosS3+34 < 310 && yPosS3 > 655 && yPosS3 < 725) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 75 && xPosS3 < 300 && yPosS3 < 645 && yPosS3 > 720 || xPosS3+34 > 75 &&       xPosS3+34 < 300 && yPosS3 > 645 && yPosS3 < 720) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  //lower right L
+  if (xPosS3 > 480 && xPosS3 < 525 && yPosS3 < 725 && yPosS3 > 480 || xPosS3+34 > 480 && xPosS3+34 < 525 && yPosS3 < 725 && yPosS3 > 480) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 475 && xPosS3 < 525 && yPosS3 < 725 && yPosS3 > 475 || xPosS3+34 > 475 && xPosS3+34 < 525 && yPosS3 < 725 && yPosS3 > 475) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  } if (xPosS3 > 530 && xPosS3 < 760 && yPosS3 < 655 && yPosS3 > 725 || xPosS3+34 > 530 && xPosS3+34 < 760 && yPosS3 > 655 && yPosS3 < 725) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 525 && xPosS3 < 750 && yPosS3 < 645 && yPosS3 > 720 || xPosS3+34 > 525 &&       xPosS3+34 < 750 && yPosS3 > 645 && yPosS3 < 720) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 += 2;
+  }
+    //Left upper L
+  if (xPosS3 > 280 && xPosS3 < 325 && yPosS3 < 350 && yPosS3 > 55 || xPosS3+34 > 280 && xPosS3+34 < 325 && yPosS3 < 350 && yPosS3 > 55) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  }if (xPosS3 > 275 && xPosS3 < 325 && yPosS3 < 345 && yPosS3 > 45 || xPosS3+34 > 275 && xPosS3+34 < 325 && yPosS3 < 345 && yPosS3 > 45) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  } if (xPosS3 > 80 && xPosS3 < 310 && yPosS3 < 50 && yPosS3 > 125 || xPosS3+34 > 80 && xPosS3+34 < 310 && yPosS3 > 50 && yPosS3 < 125) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 -= 2;
+  } if (xPosS3 > 75 && xPosS3 < 300 && yPosS3 < 40 && yPosS3 > 120 || xPosS3+34 > 75 &&       xPosS3+34 < 300 && yPosS3 > 40 && yPosS3 < 120) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+      //Right upper L
+  if (xPosS3 > 480 && xPosS3 < 525 && yPosS3 < 350 && yPosS3 > 55 || xPosS3+34 > 480 && xPosS3+34 < 525 && yPosS3 < 350 && yPosS3 > 55) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  }if (xPosS3 > 475 && xPosS3 < 525 && yPosS3 < 345 && yPosS3 > 45 || xPosS3+34 > 475 && xPosS3+34 < 525 && yPosS3 < 345 && yPosS3 > 45) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  } if (xPosS3 > 530 && xPosS3 < 760 && yPosS3 < 50 && yPosS3 > 125 || xPosS3+34 > 530 && xPosS3+34 < 760 && yPosS3 > 50 && yPosS3 < 125) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 525 && xPosS3 < 750 && yPosS3 < 40 && yPosS3 > 120 || xPosS3+34 > 525 &&       xPosS3+34 < 750 && yPosS3 > 40 && yPosS3 < 120) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  //left upper rect
+  if (xPosS3 > 80 && xPosS3 < 260 && yPosS3 < 145 && yPosS3 > 355 || xPosS3+34 > 80 && xPosS3+34 < 260 && yPosS3 > 145 && yPosS3 < 355) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 75 && xPosS3 < 250 && yPosS3 < 140 && yPosS3 > 350 || xPosS3+34 > 75 &&       xPosS3+34 < 250 && yPosS3 > 140 && yPosS3 < 350) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+    //right upper rect
+  if (xPosS3 > 580 && xPosS3 < 760 && yPosS3 < 145 && yPosS3 > 355 || xPosS3+34 > 580 && xPosS3+34 < 760 && yPosS3 > 145 && yPosS3 < 355) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 575 && xPosS3 < 750 && yPosS3 < 140 && yPosS3 > 350 || xPosS3+34 > 575 &&       xPosS3+34 < 750 && yPosS3 > 140 && yPosS3 < 350) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+    //left lower rect
+  if (xPosS3 > 80 && xPosS3 < 225 && yPosS3 < 625 && yPosS3 > 480 || xPosS3+34 > 80 && xPosS3+34 < 225 && yPosS3 < 625 && yPosS3 > 480) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 75 && xPosS3 < 220 && yPosS3 < 620 && yPosS3 > 475 || xPosS3+34 > 75 &&       xPosS3+34 < 220 && yPosS3 < 620 && yPosS3 > 475) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  //right lower rect
+  if (xPosS3 > 580 && xPosS3 < 726 && yPosS3 < 625 && yPosS3 > 480 || xPosS3+34 > 580 && xPosS3+34 < 726 && yPosS3 < 625 && yPosS3 > 480) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+  } if (xPosS3 > 575 && xPosS3 < 720 && yPosS3 < 620 && yPosS3 > 475 || xPosS3+34 > 575 &&       xPosS3+34 < 720 && yPosS3 < 620 && yPosS3 > 475) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+  }
+  //walls
+  //left upper poal
+    if (xPosS3 > -10 && xPosS3 < 25 && yPosS3 > -10 && yPosS3 < 400 || xPosS3+34 > 0 && xPosS3+34 < 25 && yPosS3 > 0 && yPosS3 < 400) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+    }
+  //Right upper poal
+    if (xPosS3 > 775 && xPosS3 < 810 && yPosS3 > 0 && yPosS3 < 400 || xPosS3+34 > 775 && xPosS3+34 < 810 && yPosS3 > 0 && yPosS3 < 400) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 -= 2;
+    }
+    //left lower poal
+    if (xPosS3 > -10 && xPosS3 < 25 && yPosS3 > 420 && yPosS3 < 800 || xPosS3+34 > -10 && xPosS3+34 < 25 && yPosS3 > 420 && yPosS3 < 800) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 += 2;
+    }
+  //Right lower poal
+    if (xPosS3 > 775 && xPosS3 < 810 && yPosS3 > 420 && yPosS3 < 800 || xPosS3+34 > 775 && xPosS3+34 < 810 && yPosS3 > 420 && yPosS3 < 800) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+    }
+    //Left upper stick
+    if (xPosS3 > 0 && xPosS3 < 375 && yPosS3 > -20 && yPosS3 < 25 || xPosS3+34 > 0 && xPosS3+34 < 375 && yPosS3 > -20 && yPosS3 < 25) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 += 2;
+    }
+    //Right upper stick
+    if (xPosS3 > 425 && xPosS3 < 800 && yPosS3 > -20 && yPosS3 < 25 || xPosS3+34 > 425 && xPosS3+34 < 800 && yPosS3 > -20 && yPosS3 < 25) {
+    Smove3 = 0;
+    yPosS3 += 2;
+    xPosS3 -= 2;
+    }
+    //Left upper stick
+    if (xPosS3 > 0 && xPosS3 < 375 && yPosS3 > 745 && yPosS3 < 820 || xPosS3+34 > 0 && xPosS3+34 < 375 && yPosS3 > 745 && yPosS3 < 820) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 += 2;
+    }
+    //Right upper stick
+    if (xPosS3 > 425 && xPosS3 < 800 && yPosS3 > 745 && yPosS3 < 820 || xPosS3+34 > 425 && xPosS3+34 < 800 && yPosS3 > 745 && yPosS3 < 820) {
+    Smove3 = 0;
+    yPosS3 -= 2;
+    xPosS3 -= 2;
+    }
+    //Teleports
+    if (xPosS3 < 0 || xPosS3+34 < 0) {
+    xPosS3 = xPosS3+800
+    } if (xPosS3 > 800 || xPosS3+34 > 800) {
+    xPosS3 = xPosS3-800
+    } if (yPosS3+8 < 0 || xPosS3+34 < 0) {
+    yPosS3 = yPosS3+800
+    } if (yPosS3+8 > 800 || xPosS3+34 > 800) {
+    yPosS3 = yPosS3-800
+    }
+}
+
+function straws4() {
+  //straws Kordinater
+  var wPosS2 = stw.width;
+  var hPosS2 = stw.height;
+  //straw
+  push();
+  image(stw, xPosS4 ,yPosS4, wPosS2/5, hPosS2/10);
+  pop();
+      if (Smove4 == 0){
+    Smove4 = random(4);
+  }
+   if (Smove4<1&&Smove4>0){
+      yPosS4 -= 4;
+    } else if (Smove4<2&&Smove4>1){
+      yPosS4 += 4;
+    } if (Smove4<3&&Smove4>2){
+    xPosS4 -= 4;
+  } else if (Smove4<4&&Smove4>3){
+    xPosS4 += 4;
+}  
+}
+
+function straw_hit_wall4() {
+//hidden walls
+  if (xPosS4 > 75 && xPosS4 < 85 && yPosS4 > 100 && yPosS4 < 700 || xPosS4+34 > 75 && xPosS4+34 < 85 && yPosS4 > 100 && yPosS4 < 700) {
+    Smove4 = 0;
+    xPosS4 += 2;
+  } if (xPosS4 > 715 && xPosS4 < 725 && yPosS4 > 100 && yPosS4 < 700 || xPosS4+34 > 715 && xPosS4+34 < 725 && yPosS4 > 100 && yPosS4 < 700) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 299 && xPosS4 < 301 && yPosS4 > 430 && yPosS4 < 500 || xPosS4+34 > 299 && xPosS4+34 < 301 && yPosS4 > 430 && yPosS4 < 500) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 499 && xPosS4 < 501 && yPosS4 > 330 && yPosS4 < 400 || xPosS4+34 > 499 && xPosS4+34 < 501 && yPosS4 > 330 && yPosS4 < 400) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 299 && xPosS4 < 301 && yPosS4 > 330 && yPosS4 < 400 || xPosS4+34 > 299 && xPosS4+34 < 301 && yPosS4 > 330 && yPosS4 < 400) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 499 && xPosS4 < 501 && yPosS4 > 430 && yPosS4 < 500 || xPosS4+34 > 499 && xPosS4+34 < 501 && yPosS4 > 430 && yPosS4 < 500) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 300 && xPosS4 < 500 && yPosS4 > 75 && yPosS4 < 85 || xPosS4+34 > 300 && xPosS4+34 < 500 && yPosS4 > 75 && yPosS4 < 85) {
+    Smove4 = 0;
+    xPosS4 += 2;
+  } if (xPosS4 > 300 && xPosS4 < 500 && yPosS4 > 75 && yPosS4 < 85 || xPosS4+34 > 300 && xPosS4+34 < 500 && yPosS4 > 715 && yPosS4 < 725) {
+    Smove4 = 0;
+    xPosS4 += 2;
+  } if (xPosS4 > 249 && xPosS4 < 251 && yPosS4 > 330 && yPosS4 < 400 || xPosS4+34 > 249 && xPosS4+34 < 251 && yPosS4 > 330 && yPosS4 < 400) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 349 && xPosS4 < 351 && yPosS4 > 330 && yPosS4 < 400 || xPosS4+34 > 349 && xPosS4+34 < 351 && yPosS4 > 330 && yPosS4 < 400) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 449 && xPosS4 < 451 && yPosS4 > 330 && yPosS4 < 400 || xPosS4+34 > 449 && xPosS4+34 < 451 && yPosS4 > 330 && yPosS4 < 400) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 549 && xPosS4 < 551 && yPosS4 > 330 && yPosS4 < 400 || xPosS4+34 > 549 && xPosS4+34 < 551 && yPosS4 > 330 && yPosS4 < 400) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 249 && xPosS4 < 251 && yPosS4 > 430 && yPosS4 < 500 || xPosS4+34 > 249 && xPosS4+34 < 251 && yPosS4 > 430 && yPosS4 < 500) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 349 && xPosS4 < 351 && yPosS4 > 430 && yPosS4 < 500 || xPosS4+34 > 349 && xPosS4+34 < 351 && yPosS4 > 430 && yPosS4 < 500) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 449 && xPosS4 < 451 && yPosS4 > 430 && yPosS4 < 500 || xPosS4+34 > 449 && xPosS4+34 < 451 && yPosS4 > 430 && yPosS4 < 500) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  } if (xPosS4 > 549 && xPosS4 < 551 && yPosS4 > 430 && yPosS4 < 500 || xPosS4+34 > 549 && xPosS4+34 < 551 && yPosS4 > 430 && yPosS4 < 500) {
+    Smove4 = 0;
+    xPosS4 -= 2;
+  }
+  if (xPosS4 > 420 && xPosS4 < 425 && yPosS4 > 0 && yPosS4 < 75 || xPosS4+34 > 420 && xPosS4+34 < 425 && yPosS4 > 0 && yPosS4 < 75) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 375 && xPosS4 < 380 && yPosS4 > 725 && yPosS4 < 800 || xPosS4+34 > 375 && xPosS4+34 < 380 && yPosS4 > 725 && yPosS4 < 800) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 0 && xPosS4 < 90 && yPosS4 > 400 && yPosS4 < 410 || xPosS4+34 > 0 && xPosS4+34 < 90 && yPosS4 > 400 && yPosS4 < 410) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 700 && xPosS4 < 800 && yPosS4 > 440 && yPosS4 < 450 || xPosS4+34 > 700 && xPosS4+34 < 800 && yPosS4 > 440 && yPosS4 < 450) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  }
+//Rect under box
+  if (xPosS4 > 380 && xPosS4 < 425 && yPosS4 < 725 && yPosS4 > 480 || xPosS4+34 > 380 && xPosS4+34 < 425 && yPosS4 < 725 && yPosS4 > 480) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 375 && xPosS4 < 425 && yPosS4 < 725 && yPosS4 > 475 || xPosS4+34 > 375 && xPosS4+34 < 425 && yPosS4 < 725 && yPosS4 > 475) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+//Rect over box
+  if (xPosS4 > 380 && xPosS4 < 425 && yPosS4 < 350 && yPosS4 > 55 || xPosS4+34 > 380 && xPosS4+34 < 425 && yPosS4 < 350 && yPosS4 > 55) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  }if (xPosS4 > 375 && xPosS4 < 425 && yPosS4 < 345 && yPosS4 > 45 || xPosS4+34 > 375 && xPosS4+34 < 425 && yPosS4 < 345 && yPosS4 > 45) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+//Left line
+  if (xPosS4 > 80 && xPosS4 < 310 && yPosS4 < 380 && yPosS4 > 450 || xPosS4+34 > 80 && xPosS4+34 < 310 && yPosS4 > 380 && yPosS4 < 450) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 75 && xPosS4 < 300 && yPosS4 < 370 && yPosS4 > 445 || xPosS4+34 > 75 &&       xPosS4+34 < 300 && yPosS4 > 370 && yPosS4 < 445) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  
+  //right line
+  if (xPosS4 > 530 && xPosS4 < 760 && yPosS4 < 380 && yPosS4 > 450 || xPosS4+34 > 530 && xPosS4+34 < 760 && yPosS4 > 380 && yPosS4 < 450) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 525 && xPosS4 < 750 && yPosS4 < 370 && yPosS4 > 445 || xPosS4+34 > 525 &&       xPosS4+34 < 750 && yPosS4 > 370 && yPosS4 < 445) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  
+    //box
+  if (xPosS4 > 350 && xPosS4 < 485 && yPosS4 < 380 && yPosS4 > 450 || xPosS4+34 > 350 && xPosS4+34 < 485 && yPosS4 > 380 && yPosS4 < 450) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 345 && xPosS4 < 485 && yPosS4 < 370 && yPosS4 > 445 || xPosS4+34 > 345 &&       xPosS4+34 < 485 && yPosS4 > 370 && yPosS4 < 445) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  //Left lower L
+  if (xPosS4 > 280 && xPosS4 < 325 && yPosS4 < 725 && yPosS4 > 480 || xPosS4+34 > 280 && xPosS4+34 < 325 && yPosS4 < 725 && yPosS4 > 480) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 275 && xPosS4 < 325 && yPosS4 < 725 && yPosS4 > 475 || xPosS4+34 > 275 && xPosS4+34 < 325 && yPosS4 < 725 && yPosS4 > 475) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  } if (xPosS4 > 80 && xPosS4 < 310 && yPosS4 < 655 && yPosS4 > 725 || xPosS4+34 > 80 && xPosS4+34 < 310 && yPosS4 > 655 && yPosS4 < 725) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 75 && xPosS4 < 300 && yPosS4 < 645 && yPosS4 > 720 || xPosS4+34 > 75 &&       xPosS4+34 < 300 && yPosS4 > 645 && yPosS4 < 720) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  //lower right L
+  if (xPosS4 > 480 && xPosS4 < 525 && yPosS4 < 725 && yPosS4 > 480 || xPosS4+34 > 480 && xPosS4+34 < 525 && yPosS4 < 725 && yPosS4 > 480) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 475 && xPosS4 < 525 && yPosS4 < 725 && yPosS4 > 475 || xPosS4+34 > 475 && xPosS4+34 < 525 && yPosS4 < 725 && yPosS4 > 475) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  } if (xPosS4 > 530 && xPosS4 < 760 && yPosS4 < 655 && yPosS4 > 725 || xPosS4+34 > 530 && xPosS4+34 < 760 && yPosS4 > 655 && yPosS4 < 725) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 525 && xPosS4 < 750 && yPosS4 < 645 && yPosS4 > 720 || xPosS4+34 > 525 &&       xPosS4+34 < 750 && yPosS4 > 645 && yPosS4 < 720) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 += 2;
+  }
+    //Left upper L
+  if (xPosS4 > 280 && xPosS4 < 325 && yPosS4 < 350 && yPosS4 > 55 || xPosS4+34 > 280 && xPosS4+34 < 325 && yPosS4 < 350 && yPosS4 > 55) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  }if (xPosS4 > 275 && xPosS4 < 325 && yPosS4 < 345 && yPosS4 > 45 || xPosS4+34 > 275 && xPosS4+34 < 325 && yPosS4 < 345 && yPosS4 > 45) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  } if (xPosS4 > 80 && xPosS4 < 310 && yPosS4 < 50 && yPosS4 > 125 || xPosS4+34 > 80 && xPosS4+34 < 310 && yPosS4 > 50 && yPosS4 < 125) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 -= 2;
+  } if (xPosS4 > 75 && xPosS4 < 300 && yPosS4 < 40 && yPosS4 > 120 || xPosS4+34 > 75 &&       xPosS4+34 < 300 && yPosS4 > 40 && yPosS4 < 120) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+      //Right upper L
+  if (xPosS4 > 480 && xPosS4 < 525 && yPosS4 < 350 && yPosS4 > 55 || xPosS4+34 > 480 && xPosS4+34 < 525 && yPosS4 < 350 && yPosS4 > 55) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  }if (xPosS4 > 475 && xPosS4 < 525 && yPosS4 < 345 && yPosS4 > 45 || xPosS4+34 > 475 && xPosS4+34 < 525 && yPosS4 < 345 && yPosS4 > 45) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  } if (xPosS4 > 530 && xPosS4 < 760 && yPosS4 < 50 && yPosS4 > 125 || xPosS4+34 > 530 && xPosS4+34 < 760 && yPosS4 > 50 && yPosS4 < 125) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 525 && xPosS4 < 750 && yPosS4 < 40 && yPosS4 > 120 || xPosS4+34 > 525 &&       xPosS4+34 < 750 && yPosS4 > 40 && yPosS4 < 120) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  //left upper rect
+  if (xPosS4 > 80 && xPosS4 < 260 && yPosS4 < 145 && yPosS4 > 355 || xPosS4+34 > 80 && xPosS4+34 < 260 && yPosS4 > 145 && yPosS4 < 355) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 75 && xPosS4 < 250 && yPosS4 < 140 && yPosS4 > 350 || xPosS4+34 > 75 &&       xPosS4+34 < 250 && yPosS4 > 140 && yPosS4 < 350) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+    //right upper rect
+  if (xPosS4 > 580 && xPosS4 < 760 && yPosS4 < 145 && yPosS4 > 355 || xPosS4+34 > 580 && xPosS4+34 < 760 && yPosS4 > 145 && yPosS4 < 355) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 575 && xPosS4 < 750 && yPosS4 < 140 && yPosS4 > 350 || xPosS4+34 > 575 &&       xPosS4+34 < 750 && yPosS4 > 140 && yPosS4 < 350) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+    //left lower rect
+  if (xPosS4 > 80 && xPosS4 < 225 && yPosS4 < 625 && yPosS4 > 480 || xPosS4+34 > 80 && xPosS4+34 < 225 && yPosS4 < 625 && yPosS4 > 480) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 75 && xPosS4 < 220 && yPosS4 < 620 && yPosS4 > 475 || xPosS4+34 > 75 &&       xPosS4+34 < 220 && yPosS4 < 620 && yPosS4 > 475) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  //right lower rect
+  if (xPosS4 > 580 && xPosS4 < 726 && yPosS4 < 625 && yPosS4 > 480 || xPosS4+34 > 580 && xPosS4+34 < 726 && yPosS4 < 625 && yPosS4 > 480) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+  } if (xPosS4 > 575 && xPosS4 < 720 && yPosS4 < 620 && yPosS4 > 475 || xPosS4+34 > 575 &&       xPosS4+34 < 720 && yPosS4 < 620 && yPosS4 > 475) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+  }
+  //walls
+  //left upper poal
+    if (xPosS4 > -10 && xPosS4 < 25 && yPosS4 > -10 && yPosS4 < 400 || xPosS4+34 > 0 && xPosS4+34 < 25 && yPosS4 > 0 && yPosS4 < 400) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+    }
+  //Right upper poal
+    if (xPosS4 > 775 && xPosS4 < 810 && yPosS4 > 0 && yPosS4 < 400 || xPosS4+34 > 775 && xPosS4+34 < 810 && yPosS4 > 0 && yPosS4 < 400) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 -= 2;
+    }
+    //left lower poal
+    if (xPosS4 > -10 && xPosS4 < 25 && yPosS4 > 420 && yPosS4 < 800 || xPosS4+34 > -10 && xPosS4+34 < 25 && yPosS4 > 420 && yPosS4 < 800) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 += 2;
+    }
+  //Right lower poal
+    if (xPosS4 > 775 && xPosS4 < 810 && yPosS4 > 420 && yPosS4 < 800 || xPosS4+34 > 775 && xPosS4+34 < 810 && yPosS4 > 420 && yPosS4 < 800) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+    }
+    //Left upper stick
+    if (xPosS4 > 0 && xPosS4 < 375 && yPosS4 > -20 && yPosS4 < 25 || xPosS4+34 > 0 && xPosS4+34 < 375 && yPosS4 > -20 && yPosS4 < 25) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 += 2;
+    }
+    //Right upper stick
+    if (xPosS4 > 425 && xPosS4 < 800 && yPosS4 > -20 && yPosS4 < 25 || xPosS4+34 > 425 && xPosS4+34 < 800 && yPosS4 > -20 && yPosS4 < 25) {
+    Smove4 = 0;
+    yPosS4 += 2;
+    xPosS4 -= 2;
+    }
+    //Left upper stick
+    if (xPosS4 > 0 && xPosS4 < 375 && yPosS4 > 745 && yPosS4 < 820 || xPosS4+34 > 0 && xPosS4+34 < 375 && yPosS4 > 745 && yPosS4 < 820) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 += 2;
+    }
+    //Right upper stick
+    if (xPosS4 > 425 && xPosS4 < 800 && yPosS4 > 745 && yPosS4 < 820 || xPosS4+34 > 425 && xPosS4+34 < 800 && yPosS4 > 745 && yPosS4 < 820) {
+    Smove4 = 0;
+    yPosS4 -= 2;
+    xPosS4 -= 2;
+    }
+    //Teleports
+    if (xPosS4 < 0 || xPosS4+34 < 0) {
+    xPosS4 = xPosS4+800
+    } if (xPosS4 > 800 || xPosS4+34 > 800) {
+    xPosS4 = xPosS4-800
+    } if (yPosS4+8 < 0 || xPosS4+34 < 0) {
+    yPosS4 = yPosS4+800
+    } if (yPosS4+8 > 800 || xPosS4+34 > 800) {
+    yPosS4 = yPosS4-800
+    }
+}
+
+function start_screen(){
+ if (GO == 4){
+  push();
+  fill(0,200,255);
+  stroke(0);
+  rect(100,100,600,600,20);
+  pop();
+  push();
+  fill(0,0,0);
+  stroke(0,200,255);
+  textSize(50);
+  textFont("STIX");
+  text("TURTLE", 300, 180);
+  textSize(30);
+  text("This is the game Turtle.", 112, 240);
+  text("The game about helping a turtle named Turtle!",112,280);
+  text("To help Turtle, you must use your arrow keys,",112,320);
+  text("to move Turtle around the map.",112,360);
+  text("Try to eat as many fish as possible,",112,400);
+  text("while also avoiding the dangerous straws!",112,440);
+  text("Each fish eaten, will increase your speed.",112,480);
+  
+  push();
+  fill(50);
+  stroke(50);
+  if (mouseX > 300 && mouseX < 500 && mouseY > 600 && mouseY < 650){
+    stroke(255, 255, 255);
+  }
+  rect(325,600,150,50,10);
+  fill(0);
+  stroke(50);
+  textSize(40);
+  textFont("STIX");
+  text("START", 338, 640);
+  pop();
+  
+  push();
+  fill(50);
+  stroke(50);
+  if (mouseX > 325 && mouseX < 475 && mouseY > 500 && mouseY < 550){
+    stroke(255, 255, 255);
+  }
+  rect(325,500,150,50,10);
+  fill(0);
+  stroke(50);
+  textSize(40);
+  textFont("STIX");
+  text("EXIT", 350, 540);
+  pop();
+   
+    move = 0;
+    Smove = 5; 
+    Smove2 = 5; 
+    Smove3 = 5; 
+    Smove4 = 5;
+  } 
+}
+
+function end_screen(){
+  if (GO == 1){
+  push();
+  fill(0,0,0);
+  stroke(0);
+  rect(100,100,600,600,20);
+  pop();
+  push();
+  fill(255,255,255);
+  stroke(0,0,0);
+  textSize(50);
+  textFont("STIX");
+  text("Game over!", 280, 180);
+  textSize(30);
+  text("You killed the turtle! It only took " + p/100 +" sec!", 115, 240);
+  if (f>0) {
+  text("You ate " + f +" fish, YUMMIE!", 115, 280);
+  } else if (f==0){
+  text("You ate " + f +" fish, kinda sad to be honest...", 115, 280);
+  }
+  textSize(20);
+  text("Try to keep turtles alive for longer than " + p/100 +" sec, by pressing restart!", 115, 340);
+  text("Turtles are dying all over the world from unexpected plastic straws!", 115, 380);
+  text("If you want to save turtles in the real world, then sort your garbage!", 115, 420);
+  pop();
+  
+  push();
+  fill(50);
+  stroke(50);
+  if (mouseX > 300 && mouseX < 500 && mouseY > 600 && mouseY < 650){
+    stroke(255, 255, 255);
+  }
+  rect(300,600,200,50,10);
+  fill(0);
+  stroke(50);
+  textSize(40);
+  textFont("STIX");
+  text("RESTART", 313, 640);
+  pop();
+  
+  push();
+  fill(50);
+  stroke(50);
+  if (mouseX > 325 && mouseX < 475 && mouseY > 500 && mouseY < 550){
+    stroke(255, 255, 255);
+  }
+  rect(325,500,150,50,10);
+  fill(0);
+  stroke(50);
+  textSize(40);
+  textFont("STIX");
+  text("EXIT", 350, 540);
+  pop();
+  }
+}
+
+function mouseClicked() {
+if (mouseX > 300 && mouseX < 500 && mouseY > 600 && mouseY < 650 && GO == 1){
+    GO = 2;
+    p = 0;
+    f = 0;
+  } if (mouseX > 70 && mouseX <70+300 && mouseY > 500 && mouseY < 500 + 170 && GO == 3) {
+   GO = 4 
+  } if (mouseX > 325 && mouseX < 475 && mouseY > 500 && mouseY < 550 && GO == 1){
+    GO = 3;
+    p = 0;
+    f = 0;
+  } if (mouseX > 325 && mouseX < 475 && mouseY > 600 && mouseY < 650 && GO == 4){
+    GO = 2;
+    p = 0;
+    f = 0;
+  } if (mouseX > 325 && mouseX < 475 && mouseY > 500 && mouseY < 550 && GO == 4){
+    GO = 3;
+    p = 0;
+    f = 0;
+  }
+}
+function game_over() {
+  
+  var d = dist(xPosT+24, yPosT+17, xPosS+25, yPosS+25);
+  var d2 = dist(xPosT+24, yPosT+17, xPosS2+25, yPosS2+25);
+  var d3 = dist(xPosT+24, yPosT+17, xPosS3+25, yPosS3+25);
+  var d4 = dist(xPosT+24, yPosT+17, xPosS4+25, yPosS4+25);
+  if(d < 35){
+    GO = 1;
+  } else if (d2<35){
+    GO = 1;
+  } else if (d3<35){
+    xPosS3= random(25,775);
+    yPosS3= random(25,775);
+    f += 1
+  } else if (d4<35){
+    GO = 1;
+  }
+  if (GO == 1){
+   xPosT = 10000;
+    Smove = 5; 
+    Smove2 = 5; 
+    Smove3 = 5; 
+    Smove4 = 5; 
+  } else if (GO == 2) {
+    xPosT = 375;
+    yPosT = 735;
+    Smove = 0; 
+    Smove2 = 0; 
+    Smove3 = 0; 
+    Smove4 = 0; 
+    xPosS = 400;
+    yPosS = 400;
+    xPosS2 = 380
+    yPosS2 = 400
+    xPosS3 = 350
+    yPosS3 = 400
+    xPosS4 = 390
+    yPosS4 = 400
+    GO = 0;
+  }
+}
+function reset(){
+ if (GO == 3) {
+    xPosT = 375;
+    yPosT = 735;
+    Smove = 0; 
+    Smove2 = 0; 
+    Smove3 = 0; 
+    Smove4 = 0; 
+    xPosS = 400;
+    yPosS = 400;
+    xPosS2 = 380
+    yPosS2 = 400
+    xPosS3 = 350
+    yPosS3 = 400
+    xPosS4 = 390
+    yPosS4 = 400 
+}
+}
+function timer() {
+  if (GO == 0) {
+   p += 2.5 
+  }
+  
+  fill(255,255,255);
+  stroke(0,0,0);
+  textSize(20);
+  text(p/100+" sec", 25, 20);
+  text(f+" fish eaten!", 160, 20);
+  
+}
+function draw_turtle_game() {
+  turtle_game();
+  turtle_move();
+  turtle_hit_wall();
+  straws();
+  straw_hit_wall();
+  straws2();
+  straw_hit_wall2();
+  straws3();
+  straw_hit_wall3();
+  straws4();
+  straw_hit_wall4();
+  game_over();
+  timer();
+}
+
+function draw() {
+  baggrund();
+  if(GO==0||GO==1 ||GO==2 ||GO==4){
+  draw_turtle_game();
+  }
+  start_screen(); 
+  reset();
+  end_screen();
+}
+
 
 
 /* CUSTOM FUNCTIONS FOR P5LIVE */
