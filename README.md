@@ -1,5 +1,8 @@
 # GCP4 - INNOVATION OG PROGRAMMERING
 
+## Elevprogrammer
+* [Elevprogrammer 2021](https://mpsteenstrup.github.io/GCP4/elevprogrammer2021/)
+* [Elevprogrammer 2020](https://mpsteenstrup.github.io/GCP4/elevprogrammer2020/)
 
 
 Vi bruger platformen [teddavis.org/p5live](https://teddavis.org/p5live), hvor I kan skrive kode samtidigt i samme dokument.
@@ -67,5 +70,3 @@ For at få jeres programmer samlet på en fælles webside skal I eksportere jere
 ![eksporter som HTML](eksportHtml.png)
 
 I skal svare på  [spørgeskemaet](https://forms.gle/PyK55jAiecYS9cfx8) hvor I uploader jeres fil.
-
-I kan se jeres og de tidligere andres programmer på [https://mpsteenstrup.github.io/GCP4/](https://mpsteenstrup.github.io/GCP4/)
