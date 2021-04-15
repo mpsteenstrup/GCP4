@@ -2,7 +2,7 @@
 
 
 
-Vi bruger platformen [teddavis.org/p5live](https://teddavis.org/p5live), hvor I kan skrive kode samtidigt i samme dokument. 
+Vi bruger platformen [teddavis.org/p5live](https://teddavis.org/p5live), hvor I kan skrive kode samtidigt i samme dokument.
 
 
 [Introduktionsvideo til P5live](https://youtu.be/2UyLpdzFQM0?list=PL7kocC-_L74Kbk81pkcXVTG4w8X1syzqR)
@@ -68,4 +68,4 @@ For at få jeres programmer samlet på en fælles webside skal I eksportere jere
 
 I skal svare på  [spørgeskemaet](https://forms.gle/6k9dzAQkufRwM1TLA) hvor I uploader jeres fil.
 
-I kan se jeres og de andres programmer på [https://mpsteenstrup.github.io/GCP4/](https://mpsteenstrup.github.io/GCP4/)
+I kan se jeres og de tidligere andres programmer på [https://mpsteenstrup.github.io/GCP4/](https://mpsteenstrup.github.io/GCP4/)
