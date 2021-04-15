@@ -66,6 +66,6 @@ Små programmer som I kan bruge i jeres egne programmer.
 For at få jeres programmer samlet på en fælles webside skal I eksportere jeres programmer som html fil.
 ![eksporter som HTML](eksportHtml.png)
 
-I skal svare på  [spørgeskemaet](https://forms.gle/6k9dzAQkufRwM1TLA) hvor I uploader jeres fil.
+I skal svare på  [spørgeskemaet](https://forms.gle/PyK55jAiecYS9cfx8) hvor I uploader jeres fil.
 
 I kan se jeres og de tidligere andres programmer på [https://mpsteenstrup.github.io/GCP4/](https://mpsteenstrup.github.io/GCP4/)
