@@ -1,7 +1,7 @@
 # GCP4 - INNOVATION OG PROGRAMMERING
 
 ## Elevprogrammer
-* [Elevprogrammer 2021](https://mpsteenstrup.github.io/GCP4/elevprogrammer2021/)
+* [Elevprogrammer 2021](https://https://ponye.dk/gcp4Inno2021/)
 * [Elevprogrammer 2020](https://mpsteenstrup.github.io/GCP4/elevprogrammer2020/)
 
 
