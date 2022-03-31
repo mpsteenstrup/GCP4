@@ -4,8 +4,8 @@ Næsten samme program som "random.js" men her er to billeder og det tilfældige 
 let img;
 
 function preload() {
-	img = createImg('http://mpsteenstrup.dk/FN_maal/FN1.jpg');
-	img2 = createImg('http://mpsteenstrup.dk/FN_maal/FN14.jpg');
+	img = createImg('http://mpsteenstrup.dk/FN_maal/FN1.jpg','');
+	img2 = createImg('http://mpsteenstrup.dk/FN_maal/FN14.jpg','');
 	img.hide();
 	img2.hide();
 }
