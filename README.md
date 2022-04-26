@@ -1,15 +1,10 @@
 # GCP4 - INNOVATION OG PROGRAMMERING
 
-## Elevprogrammer
-* [Elevprogrammer 2021](https://ponye.dk/gcp4Inno2021/)
-* [Elevprogrammer 2020](https://mpsteenstrup.github.io/GCP4/elevprogrammer2020/)
 
-
+## Introduktion
 Vi bruger  JavaScript biblioteket P5.js med en online editor,  [https://editor.p5js.org](https://editor.p5js.org).
 
-
-
-[Introduktionsvideo til P5live](https://youtu.be/2UyLpdzFQM0?list=PL7kocC-_L74Kbk81pkcXVTG4w8X1syzqR)
+[Introduktionsvideo til P5live](https://youtu.be/MvpwttXsEIg)
 
 ### opsætning
 * Koden skrives i editoren til venstre og køres med 'afspil' knappen.
@@ -34,6 +29,11 @@ Billeder indlæses fra URLen (hjemmesideaddressen). Samling af FN billeder her:
  `http://mpsteenstrup.dk/FN_maal/FN1.jpg`
 
 I kan få de andre billeder ved at skifte `FN1`ud med `FN2`, `FN3` osv.
+
+## Elevprogrammer
+* [Elevprogrammer 2021](https://ponye.dk/gcp4Inno2021/)
+* [Elevprogrammer 2020](https://mpsteenstrup.github.io/GCP4/elevprogrammer2020/)
+
 
 
 ### småprogrammer
