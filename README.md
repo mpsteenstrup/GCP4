@@ -5,19 +5,15 @@
 * [Elevprogrammer 2020](https://mpsteenstrup.github.io/GCP4/elevprogrammer2020/)
 
 
-Vi bruger platformen [teddavis.org/p5live](https://teddavis.org/p5live), hvor I kan skrive kode samtidigt i samme dokument.
+Vi bruger  JavaScript biblioteket P5.js med en online editor,  [https://editor.p5js.org](https://editor.p5js.org).
 
 
 [Introduktionsvideo til P5live](https://youtu.be/2UyLpdzFQM0?list=PL7kocC-_L74Kbk81pkcXVTG4w8X1syzqR)
 
 ### opsætning
-* I settings skal I fjerne 'Live Coding', så programmet ikke automatisk kører jeres kode. Hvis I er i gang med at lave en løkke kan det få programmet til at gå ned.
-* Programmet kører i browseren og den letteste måde at gemme er at markere alt teksten og kopiere den over i en tekst editor på computeren.
+* Koden skrives i editoren til venstre og køres med 'afspil' knappen.
+* I højre hjørne kan I tilmelde jer 'Sign Up'. Det er rigtigt smart for så kan I gemme jeres arbejde og loade billeder mm, gør det.
 
-### COCODING
-* Start en kodesession med knappen 'COCODING'.
-* Del url addressen og alle kan skrive.
-* Husk at gem koden ofte og gerne som forskellige versioner.
 
 ### Vejledninger
 Kristian Wichmann har lavet en række videovejledninger. Han bruger et andet online værktøj, men kodningen er den samme. [KWihkmann youtube](https://www.youtube.com/channel/UCRSqTiVe7Rho95hNtd3hJBQ/videos). Kodestumperne ligger her, [github.com/kwichmann](https://github.com/kwichmann/Kreativ-Kodning).
