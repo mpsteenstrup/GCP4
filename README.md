@@ -32,6 +32,7 @@ I kan få de andre billeder ved at skifte `FN1`ud med `FN2`, `FN3` osv.
 
 ## Elevprogrammer
 * [Udvalg af elevprogrammer](http://mpsteenstrup.dk/rysensteen/rysensteen_elev.html)
+* [Elevprogrammer 2022](https://mpsteenstrup.github.io/GCP4/elevprogrammer2022/)
 * [Elevprogrammer 2021](https://ponye.dk/gcp4Inno2021/)
 * [Elevprogrammer 2020](https://mpsteenstrup.github.io/GCP4/elevprogrammer2020/)
 
