@@ -56,7 +56,7 @@ Små programmer som I kan bruge i jeres egne programmer. De er lavet i et andet 
 ## Deling af jeres programmer
 For at få jeres programmer samlet på en fælles webside skal I dele link til jeres programmer. **I kan stadigt ændre i programmet efter det er delt**, men hvis I laver et helt nyt program skal I dele det igen. I skal
 
-* Under ´´´file´´´ skal I vælge ´´´share´´´.
+* Under ```file``` skal I vælge ```share```.
 * Kopier linket til **Fullscreen** ind i spørgeskemaet.
 * Kopier linket til **Edit** ind i spørgeskemaet.
 
