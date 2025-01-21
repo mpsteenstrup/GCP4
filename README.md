@@ -18,10 +18,10 @@ Kristian Wichmann har lavet en række videovejledninger. [KWihkmann youtube](htt
 P5 har et godt bibliotek med [referencer](https://p5js.org/reference/), først kommmer et eksempel og nedenunder beskrivelsen.
 
 ### Arbejdsmetode
-* Arbejd ud fra et eksempel som I kan ændre i.
-* Keep it simple, nok det vigtigste råd her.
-* Husk Variabelkontrol. Lav kun én ting om af gangen og kør programmet.
-* Gem jeres program. Ny version hver gang noget virker.
+> * Arbejd ud fra et eksempel som I kan ændre i.
+> * Keep it simple, nok det vigtigste råd her.
+> * Husk Variabelkontrol. Lav kun én ting om af gangen og kør programmet.
+> * Gem jeres program. Ny version hver gang noget virker.
 
 ### Billeder
 Billeder indlæses fra URLen (hjemmesideaddressen). Samling af FN billeder her:
