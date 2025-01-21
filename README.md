@@ -43,6 +43,7 @@ Små programmer som I kan bruge i jeres egne programmer. De er lavet i et andet 
 
 * [helloWorld](https://editor.p5js.org/mpsteenstrup/sketches/CC8lAI4tF), [video](https://youtu.be/n-HZZf-5TOg)
 * [loadImage](https://editor.p5js.org/mpsteenstrup/sketches/triAzzxTr), [video](https://youtu.be/W0agzwfQXPg)
+* [loadImage_local](https://editor.p5js.org/mpsteenstrup/sketches/Wblcf7mO9), [video mangeler](w)
 * [followMe](https://editor.p5js.org/mpsteenstrup/sketches/tspB5ZILi), [video](https://youtu.be/ayX7336Fsf0)
 * [moveMe](https://editor.p5js.org/mpsteenstrup/sketches/9ZieKLm4P), [video](https://youtu.be/_RCGfx-2K4w)
 * [pressedMouse](https://editor.p5js.org/mpsteenstrup/sketches/wTk6pS1oq), [video](https://youtu.be/AV-Nsb_RWaw)
