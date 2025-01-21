@@ -10,7 +10,6 @@ Vi bruger  JavaScript biblioteket P5.js med en online editor,  [https://editor.p
 * Koden skrives i editoren til venstre og køres med 'afspil' knappen.
 * I højre hjørne kan I tilmelde jer 'Sign Up'. Det er rigtigt smart for så kan I gemme jeres arbejde og loade billeder mm, gør det.
 
-
 ### Vejledninger
 Kristian Wichmann har lavet en række videovejledninger. [KWihkmann youtube](https://www.youtube.com/channel/UCRSqTiVe7Rho95hNtd3hJBQ/videos). Kodestumperne ligger her, [github.com/kwichmann](https://github.com/kwichmann/Kreativ-Kodning).
 
